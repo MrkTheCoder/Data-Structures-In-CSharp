@@ -1,19 +1,20 @@
 # Data Structures in CSharp (C#)
-[Teach Others to Learn More Yourself!]
+#### [Teach Others to Learn More Yourself!]
 
-(Still in progress ...)
+(*Still in progress ...*)
 
-Hello! I just push this for education purposes. Any students of Data Structures are welcome to use it. I hope this will be helpful.
+Hello!
+This repository is for education purposes. You can find all kind of Data Structure libraries here. I wish this will be useful specially for those that study these for first time.
 
-# Structure of Project:
-I used .Net v5.0 (Core) as target fraework, but you can use any other version of .Net if you like. I put each Data Structure topic in its own Folder with 3 type of projects:
-* Class Library (DLL) for each Data Structure.
-* Console App. (For Compile and Running)
-* Unit Test. (For Practicing on writing Unit Tests)
+## Structure of Project:
+I used .Net v5.0 (Core) as target framework, but you can use any other version of .Net if you like. I put each Data Structure topic in its own folder with 2 other projects. Each folder have these projects:
+* A class library (DLL) that start with DataStructureXyz name.
+* A Console App. (Testing DataStructureXyz in action)
+* Unit Tests. (To test all DataStructureXyz methods)
 
 I will fill each project with comments, so it will be more helpful to students.
 
-I was a student of "The Ultimate Design Patterns" by Mr. Mosh Hamedani's. Furthermore, I still a student and never stop to learning new things. 
+Once, I was a student of "[The Ultimate Design Patterns](https://codewithmosh.com/p/design-patterns/ "The Ultimate Design Patterns")" course by Mr. [Mosh Hamedani](https://codewithmosh.com/ "Mosh Hamedani")'s. Still! I am a student, Everyday I learn new things! I hope you find this repository useful.
 
 Happy Codding!
 
