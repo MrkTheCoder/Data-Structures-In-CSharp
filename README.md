@@ -14,7 +14,7 @@ I used .Net v5.0 (Core) as target fraework, but you can use any other version of
 
 I will fill each project with comments, so it will be more helpful to students.
 
-Once, I was a student of "[The Ultimate Design Patterns](http:/https://codewithmosh.com/p/design-patterns/ "The Ultimate Design Patterns")" course by Mr. [Mosh Hamedani](http://https://codewithmosh.com/ "Mosh Hamedani")'s. Furthermore, I still a student myself and learn many new things everyday!
+Once, I was a student of "[The Ultimate Design Patterns](http:/https://codewithmosh.com/p/design-patterns/ "The Ultimate Design Patterns")" course by Mr. [Mosh Hamedani](http:/https://codewithmosh.com/ "Mosh Hamedani")'s. Furthermore, I still a student myself and learn many new things everyday!
 
 Happy Codding!
 
