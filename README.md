@@ -14,7 +14,7 @@ I build all projects with .Net v5.0 (Core) as target framework, but you can use 
 
 I will fill each project with comments, so it will be more useful for study purpose.
 
-Once, I was a student of "[The Ultimate Design Patterns](https://codewithmosh.com/p/design-patterns/ "The Ultimate Design Patterns")" course by Mr. [Mosh Hamedani](https://codewithmosh.com/ "Mosh Hamedani")'s. Still! I am a student, Everyday I learn new things! I hope you find this repository useful.
+I learned Data Structures from "[The Ultimate Design Patterns](https://codewithmosh.com/p/design-patterns/ "The Ultimate Design Patterns")" course by Mr. [Mosh Hamedani](https://codewithmosh.com/ "Mosh Hamedani")'s. Still! I'm learn new things everyday! and I hope you find this repository useful and learn something from it too.
 
 Happy Codding!
 
