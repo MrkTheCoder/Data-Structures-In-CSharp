@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataStructureArray\DataStructureArray.csproj" />
+    <ProjectReference Include="..\DataStructureArray\ArrayDataStructure.csproj" />
   </ItemGroup>
 
 </Project>

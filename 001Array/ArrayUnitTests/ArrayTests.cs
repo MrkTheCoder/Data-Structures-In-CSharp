@@ -1,15 +1,15 @@
 ﻿/*
  * MAKE SURE TO ADD xUnit FROM Nuget TO THIS PROJECT.
  *
- * As you know there are many "Method Naming Conventions" out there, I will using two "Method Naming Conventions" that I like and use more at
- * below tests. I will do that JUST for learning purpose, But in real world, we should we should only stick to one naming convention in our
- * project based on our desire or team.
+ * As you know, there are many "Method Naming Conventions" out there, I will be using two "Method Naming Conventions" that I like and
+ * use more at below tests. I will do that JUST for learning purpose, But in real world, we should only stick to one naming convention
+ * in our project based on our desire or team.
  *
  */
 
 using System;
 using Xunit;
-using Array = DataStructureArray.Array;
+using Array = ArrayDataStructure.Array;
 
 namespace ArrayUnitTests
 {
@@ -49,7 +49,6 @@ namespace ArrayUnitTests
             Assert.Equal(exceptionMessage, ex.Message);
         }
         #endregion
-
 
         #region [Tests for STEP 2 of Array class]
         [Fact]

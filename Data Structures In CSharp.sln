@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001Array", "001Array", "{561B22C0-0B92-46A0-B581-FD6ECA33A21D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppArray", "001Array\ConsoleAppArray\ConsoleAppArray.csproj", "{7EA814AB-E093-4566-930E-FD3A03C47CEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppArray", "001Array\ConsoleAppArray\ConsoleAppArray.csproj", "{7EA814AB-E093-4566-930E-FD3A03C47CEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructureArray", "001Array\DataStructureArray\DataStructureArray.csproj", "{58DACFB3-7E9D-4E10-A737-D5FCC16202C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayDataStructure", "001Array\DataStructureArray\ArrayDataStructure.csproj", "{58DACFB3-7E9D-4E10-A737-D5FCC16202C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayUnitTests", "001Array\ArrayUnitTests\ArrayUnitTests.csproj", "{E5F3A133-C46A-4C27-A2FF-683878DB82C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayUnitTests", "001Array\ArrayUnitTests\ArrayUnitTests.csproj", "{E5F3A133-C46A-4C27-A2FF-683878DB82C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

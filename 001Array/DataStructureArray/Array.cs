@@ -47,7 +47,7 @@
 
 using System;
 
-namespace DataStructureArray
+namespace ArrayDataStructure
 {
     public class Array
     {
