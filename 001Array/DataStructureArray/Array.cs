@@ -12,47 +12,22 @@
  *      Delete	            O(n)
  *
  * Practice One:
- *      We will write an Array class that can hold integer numbers in a nullable array. It will expand automatically, if we insert more than its
- *      length. For this exercise, please follow my below steps. After each step, check your code with mine. 
+ *      We will write an Array class that can hold integer numbers in a nullable int[] array. It will expand automatically,
+ *      if we insert more than its predefined length. For this exercise, please follow the below steps.
  *
  *      Please follow each step sequentially:
- *          1) Build Array class with these conditions:
- *              *. Members:
- *                  public property "Items" of type int?[] with private setter. (We will store our numbers in this array)
- *                  public property "Count" of type int with private setter. (keep track of total inserted numbers and latest free array index)
- *              *. At instantiation, it should ask for array length.
- *              *. Verify that length is valid. throw an exception if it is not.
- *                      [T]. Write Unit Test.
- *
- *          2) Add public Insert method in these steps:
- *              1st) It has a parameter: Item of type int. It will add it to the array.
- *                      [T]. Write the first Unit Test to make sure it work properly.
- *              2nd) Expand array 50% of its initialed length, if it becomes full. We need to store value of first instantiated length.
- *                   (You can change this rule based on your desire.)
- *                      [T]. Write Unit Tests.
- *              3ed) Refactor your code to support Single Responsibility Principle (SRP) on this method. (Also it will cover Don't Repeat
- *                   Yourself [DRY] principle too)
- *                      [T]. Run all previous Unit Test to make sure everything go smoothly.
- *              4th) Support Fluent Interface design pattern. (What is Fluent Interface design patter is:
- *                   https://dotnettutorials.net/lesson/fluent-interface-design-pattern/)
- *                      [T]. Run all previous Unit Test to make sure everything go smoothly.
- *              5th) What is each method Time Complexity?
- *
- *          3) Add public RemoveAt method:
- *              *. It has a parameter: Index of type int. This is the index of one of the inserted items.
- *              *. HINT: check for index to be valid based on total inserted items. throw an exception if it is not.
- *                  [T]. Write Unit Test.
- *              *. What is method Time Complexity?
+ *          (Please check "README.MD" file in the root of "001Array" folder.)
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace ArrayDataStructure
 {
     public class Array
     {
         #region [STEP 1]
-        private readonly int _initialLength; // [Step 2]
+        private readonly int _additionalLength; // [Step 2]
 
         public int?[] Items { get; private set; }
         public int Count { get; private set; }
@@ -63,7 +38,8 @@ namespace ArrayDataStructure
             if (length < 1)
                 throw new ArgumentException("length cannot be less than 1");
 
-            _initialLength = length ; // [Step 2]
+            // Do you know why we do below control on length ?
+            _additionalLength = length == 1 ? 1 : length / 2; // [Step 2]
             Items = new int?[length];
             Count = 0;
         }
@@ -88,9 +64,7 @@ namespace ArrayDataStructure
             if (Count == Items.Length)
             {
                 // Create new array with current length plus half of first length at instantiation of this class.
-                // If _initialLength = 1 can make trouble! ;) Why!?
-                var newLength = Count + (_initialLength == 1 ? 1 : _initialLength / 2);
-                var expandedArray = new int?[newLength];
+                var expandedArray = new int?[Count + _additionalLength];
 
                 // Cloning current array to new expanded array.
                 for (int i = 0; i < Count; i++)
@@ -113,6 +87,32 @@ namespace ArrayDataStructure
             Count--;
             return this;
         }
+        #endregion
+
+        #region [STEP4]
+        public int IndexOf(int item) // O(n)
+        {
+            for (var i = 0; i < Items.Length; i++)
+                if (Items[i] == item)
+                    return i;
+            return -1;
+        }
+        #endregion
+
+        #region [STEP 5]
+        public int[] GetItems() // O(n)
+        {
+            if (IsEmpty())
+                throw new Exception("No item exist in array!");
+
+            var list = new int[Count];
+            for (var i = 0; i < Count; i++)
+                list[i] = Items[i].Value;
+
+            return list;
+        }
+
+        private bool IsEmpty() => Count == 0;
         #endregion
     }
 

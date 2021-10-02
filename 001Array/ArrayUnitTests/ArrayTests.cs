@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Linq;
 using Xunit;
 using Array = ArrayDataStructure.Array;
 
@@ -15,7 +16,7 @@ namespace ArrayUnitTests
 {
     public class ArrayTests
     {
-        #region [Tests for STEP 1 of Array class]
+        #region [Tests of STEP 1]
         [Fact]
         // For "Method Naming Conventions", I used this format: "ClassMethodName_StateUnderTest_ExpectedBehavior".
         public void Constructor_SetValidLength_ArrayCreatedWithProperLengthAndCount()
@@ -50,7 +51,7 @@ namespace ArrayUnitTests
         }
         #endregion
 
-        #region [Tests for STEP 2 of Array class]
+        #region [Tests of STEP 2]
         [Fact]
         public void Insert_InsertOneItem_AddedToArrayAndCountShowIt()
         {
@@ -131,13 +132,13 @@ namespace ArrayUnitTests
                 Assert.Equal(items[i], array.Items[i]);
             Assert.True(array.Count == items.Length);
             Assert.True(array.Items.Length == newLength);
-            // If there are extra free rooms they must be zero
+            // If there are extra free rooms they must be null
             for (int i = items.Length; i < newLength; i++) 
                 Assert.Null(array.Items[i]);
         }
         #endregion
 
-        #region [Tests for STEP 3 of Array class]
+        #region [Tests of STEP 3]
         [Fact]
         public void RemoveAt_IndexOfFirstItem_RemoveItemAndShiftOthersLeft()
         {
@@ -175,7 +176,7 @@ namespace ArrayUnitTests
         }
 
         [Fact]
-        public void RemoveAt_RemoveAll_AllItemsShouldBeNull()
+        public void RemoveAt_RemoveAllItems_AllItemsShouldBeNull()
         {
             // Arrange
             var arrayLength = 2;
@@ -188,6 +189,22 @@ namespace ArrayUnitTests
             //Assert
             Assert.Null(array.Items[0]);
             Assert.Null(array.Items[1]);
+            Assert.True(array.Count == 0);
+            Assert.True(array.Items.Length == arrayLength);
+        }
+
+        [Fact]
+        public void RemoveAt_RemoveItemFromEmptyArray_ThrowArgumentException()
+        {
+            // Arrange
+            var arrayLength = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+
+            //Assert
+            var ex = Assert.Throws<ArgumentException>(() => array.RemoveAt(0));
+            Assert.Equal("Index is out of range!", ex.Message);
             Assert.True(array.Count == 0);
             Assert.True(array.Items.Length == arrayLength);
         }
@@ -223,9 +240,111 @@ namespace ArrayUnitTests
             var ex = Assert.Throws<ArgumentException>(() => array.RemoveAt(-1));
             Assert.Equal("Index is out of range!", ex.Message);
             Assert.True(array.Count == 2);
-            Assert.True(array.Items.Length == arrayLength);
         }
         #endregion
+
+        #region [Tests of STEP 4]
+        [Fact]
+        public void IndexOf_ExistingItemInArray_IndexOfItem()
+        {
+            // Arrange
+            var arrayLength = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Insert(100).Insert(102);
+            var index = array.IndexOf(102);
+
+            //Assert
+            Assert.Equal(1, index);
+        }
+
+        [Fact]
+        public void IndexOf_NotExistingItemInArray_ReturnMinesOne()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var notExitingItem = -1;
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Insert(100).Insert(102);
+            var index = array.IndexOf(103);
+
+            //Assert
+            Assert.Equal(notExitingItem, index);
+        }
+
+        [Fact]
+        public void IndexOf_NotExistingItemInEmptyArray_ReturnMinesOne()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var notExitingItem = -1;
+            Array array = new Array(arrayLength);
+
+            // Act
+            var index = array.IndexOf(100);
+
+            //Assert
+            Assert.Equal(notExitingItem, index);
+            Assert.True(array.Count == 0);
+        }
+        #endregion
+
+        #region [Tests of STEP 5]
+        [Fact]
+        public void GetItems_EmptyArray_ThrowException()
+        {
+            // Arrange
+            var arrayLength = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            var ex = Assert.Throws<Exception>(() => array.GetItems());
+
+            //Assert
+            Assert.Equal("No item exist in array!", ex.Message);
+        }
+
+        [Fact]
+        public void GetItems_NotFullArray_OnlyArrayOfExistingItems()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var item = -10;
+            var expectedItems = 1;
+            Array array = new Array(arrayLength);
+
+            // Act
+            var items = array.Insert(item).GetItems();
+
+            //Assert
+            Assert.Equal(expectedItems, items.Length);
+            Assert.Equal(item, items[0]);
+        }
+
+        [Fact]
+        public void GetItems_FullArray_AllItems()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var item1 = -10;
+            var item2 = 0;
+            var expectedItems = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            var items = array.Insert(item1).Insert(item2).GetItems();
+
+            //Assert
+            Assert.Equal(expectedItems, items.Length);
+            Assert.Equal(item1, items[0]);
+            Assert.Equal(item2, items[1]);
+        }
+        #endregion
+
+
     }
 
     
