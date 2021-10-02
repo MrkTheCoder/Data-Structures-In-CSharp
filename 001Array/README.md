@@ -64,3 +64,14 @@ Then follow these steps:
    1. Make method ready.
    2. Write *UnitTests* for it.
    3. What is method Time Complexity?
+
+## 6. Add `Reverse` method:
+Add `Reverse` method:
+   - **No Parameter**.
+   - **Return**: `void` or if you like to make it **Fluent Interface** support.
+     - *HINT*: if array was empty or only have 1 item, Return without any exception throw.
+
+Then follow these steps:
+   1. Make method ready.
+   2. Write *UnitTests* for it.
+   3. What is method Time Complexity?
