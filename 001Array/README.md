@@ -1,8 +1,8 @@
 
 # Array
-We will write an Array class that can hold integer numbers in a nullable int[] array. It will expand automatically, if we insert more than its predefined length. For this exercise, please follow the below steps. 
+We will write an Array class that can hold integer numbers in a nullable int[] array. It will expand automatically, if we insert more than its predefined length.
 
-Please follow each step sequentially:
+For this exercise, please follow the below steps. 
 
 ## 1. Build `Array` class
 Create new `Array` class file with these Conditions:
