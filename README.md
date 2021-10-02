@@ -4,7 +4,7 @@
 (*Still in progress ...*)
 
 Hello!
-This repository is for education purposes. You can find all kind of Data Structure libraries samples code in C# language at here. I'm hoping this will be useful for those studying Data Structure.
+This repository is for education purposes. There are various Data Structure library samples code in C# language in this repository. I'm hoping this will be useful for those studying Data Structure.
 
 ## Structure of Project:
 I build all projects with .Net v5.0 (Core) as target framework, but you can use any other version of .Net if you like. I put each Data Structure topic in its own folder with 2 other projects. Each folder have these projects:
