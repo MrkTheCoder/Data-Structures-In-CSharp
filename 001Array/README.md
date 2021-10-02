@@ -1,6 +1,8 @@
 
 # Array
-We will write an Array class that can hold integer numbers in a nullable int[] array. It will expand automatically, if we insert more than its predefined length.
+We will write an Array class step by step. It can hold integer numbers in a nullable int[] array. Also, It does not have fixed length problem like regular arrays have. I mean, if we insert items more than its predefined length, It will automatically expand the array to have more rooms. It is so fun to build such an array type ourselves, from scratch! Right!?
+
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
 For this exercise, please follow the below steps. 
 
