@@ -38,8 +38,8 @@ namespace ArrayDataStructure
             if (length < 1)
                 throw new ArgumentException("length cannot be less than 1");
 
-            // Do you know why we do below control on length ?
-            _additionalLength = length == 1 ? 1 : length / 2; // [Step 2]
+            // Do you know why I added "length % 2" in this equation!? :D
+            _additionalLength = length / 2 + length % 2; // [Step 2]
             Items = new int?[length];
             Count = 0;
         }
@@ -113,6 +113,26 @@ namespace ArrayDataStructure
         }
 
         private bool IsEmpty() => Count == 0;
+        #endregion
+
+        #region [STEP 6]
+        public Array Reverse() // O(n)
+        {
+            if (IsEmpty() || Count == 1)
+                return this; // No need to be aggressive and throw exception!
+            
+            // We are creating new array to store reversed items.
+            // We give it the same "length" as main array. Note: "Count" can be smaller than "Items.Length"
+            var array = new int?[Items.Length];
+
+            // Then we will fill new array with reversed items. Note: We are using "Count" in the loop.
+            for (int i = 0; i < Count; i++)
+                array[i] = Items[Count-1-i];
+
+            Items = array;
+
+            return this;
+        }
         #endregion
     }
 

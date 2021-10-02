@@ -120,7 +120,7 @@ namespace ArrayUnitTests
             int[] items)
         {
             // Arrange
-            var newLength = arrayLength + (arrayLength == 1 ? 1 : arrayLength / 2);
+            var newLength = arrayLength + (arrayLength / 2 + arrayLength % 2);
             Array array = new Array(arrayLength);
 
             // Act
@@ -276,7 +276,7 @@ namespace ArrayUnitTests
         }
 
         [Fact]
-        public void IndexOf_NotExistingItemInEmptyArray_ReturnMinesOne()
+        public void IndexOf_SearchInEmptyArray_ReturnMinesOne()
         {
             // Arrange
             var arrayLength = 2;
@@ -344,6 +344,80 @@ namespace ArrayUnitTests
         }
         #endregion
 
+        #region [Tests for STEP 6]
+        [Fact]
+        public void Reverse_EmptyArray_NothingHappen()
+        {
+            // Arrange
+            var arrayLength = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Reverse();
+
+            //Assert
+        }
+
+        [Fact]
+        public void Reverse_FewItemsInArray_ReverseItemsAndSaveArrayLength()
+        {
+            // Arrange
+            var arrayLength = 3;
+            var totalItems = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Insert(10).Insert(20).Reverse();
+
+            //Assert
+            Assert.Equal(arrayLength, array.Items.Length);
+            Assert.Equal(totalItems, array.Count);
+            Assert.Equal(0, array.IndexOf(20));
+            Assert.Equal(1, array.IndexOf(10));
+            Assert.Null(array.Items[arrayLength-1]);
+        }
+
+        [Fact]
+        public void Reverse_FullArray_ReverseItemsAndSaveArrayLength()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var totalItems = 2;
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Insert(10).Insert(20).Reverse();
+
+            //Assert
+            Assert.Equal(arrayLength, array.Items.Length);
+            Assert.Equal(totalItems, array.Count);
+            Assert.Equal(0, array.IndexOf(20));
+            Assert.Equal(1, array.IndexOf(10));
+        }
+
+        [Fact]
+        public void Reverse_ExpandedArray_ReverseItemsAndSaveNewArrayLength()
+        {
+            // Arrange
+            var arrayLength = 3;
+            var totalItems = 4;
+            var newLength = arrayLength + (arrayLength / 2 + arrayLength % 2);
+            Array array = new Array(arrayLength);
+
+            // Act
+            array.Insert(10).Insert(20).Insert(30).Insert(40).Reverse();
+
+            //Assert
+            Assert.Equal(newLength, array.Items.Length);
+            Assert.Equal(totalItems, array.Count);
+            Assert.Equal(0, array.IndexOf(40));
+            Assert.Equal(1, array.IndexOf(30));
+            Assert.Equal(2, array.IndexOf(20));
+            Assert.Equal(3, array.IndexOf(10));
+            for (int i = 4; i < newLength; i++)
+                Assert.Null(array.Items[i]);
+        }
+        #endregion
 
     }
 
