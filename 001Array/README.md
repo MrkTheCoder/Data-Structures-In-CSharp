@@ -1,3 +1,4 @@
+
 # Array
 We will write an Array class that can hold integer numbers in a nullable int[] array. It will expand automatically, if we insert more than its predefined length. For this exercise, please follow the below steps. 
 
@@ -30,20 +31,34 @@ Then follow these steps:
       - If you make the above improvement, re-run all *UnitTests* again.
    8. What is each method Time Complexity?
 
-3. Add `public` `RemoveAt` method:
+## 3. Add `RemoveAt` method:
+Add `RemoveAt` method:
    - **1 Parameter**: of type `int`. Its value should point to of the inserted items index.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: check for inserted index to be a valid index based on total inserted items. `throw` an exception if it is not.
-   1. Write *UnitTests* for it.
-   2. What is this method Time Complexity?
 
-4. Add `public` `IndexOf` method:
+Then follow these steps:
+   1. Make the method ready to use.
+   2. Write *UnitTests* for it.
+   3. What is this method Time Complexity?
+
+## 4. Add `IndexOf` method:
+Add `IndexOf` method:
    - **1 Parameter**: of type `int`.  It is an item that we want to search for it in array.
    - **Return**: *int*. If an item found, its index should be return otherwise -1.
-   1. What is this method Time Complexity?
 
-5. Add `public` `GetItems` method:
+Then follow these steps:
+ 1. Make the method ready.
+ 2. Write *UnitTests* for it.
+ 3. What is this method Time Complexity?
+
+## 5. Add `GetItems` method:
+Add `GetItems` method:
    - **No Parameter**.
    - **Return**: array of `int[]`. Only existing items in array should be return as new array.
      - *HINT*: if array was empty, `throw` an exception.
-   1. What is method Time Complexity?
+
+Then follow these steps:
+   1. Make method ready.
+   2. Write *UnitTests* for it.
+   3. What is method Time Complexity?
