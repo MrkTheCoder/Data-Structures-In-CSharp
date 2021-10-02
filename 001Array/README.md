@@ -5,7 +5,7 @@ We will write an Array class that can hold integer numbers in a nullable int[] a
 Please follow each step sequentially:
 
 ## 1. Build `Array` class
-Create new Array class file with these Conditions:
+Create new `Array` class file with these Conditions:
 - Class members:
   - A `public` property of type `int?[]` with private setter. (We will store our numbers in this array)
   - A `public` property of type `int` with private setter. (keep tracking of the last item index in array)
@@ -16,7 +16,7 @@ Create new Array class file with these Conditions:
 Then write first *UnitTests* to see if your class Initialization working properly.
 
 ## 2. Add `Insert` method:
-Add Insert method:
+Add `Insert` method:
    - **1 Parameter**: of type int. It will be added as an item to the array.
    - **Return**: void. (for now!)
 
