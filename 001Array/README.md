@@ -4,7 +4,7 @@ We will write an Array class that can hold integer numbers in a nullable int[] a
 
 Please follow each step sequentially:
 
-## 1. Build Array class
+## 1. Build `Array` class
 Create new Array class file with these Conditions:
 - Class members:
   - A `public` property of type `int?[]` with private setter. (We will store our numbers in this array)
