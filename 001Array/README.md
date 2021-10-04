@@ -75,3 +75,14 @@ Then follow these steps:
    1. Make method ready.
    2. Write *UnitTests* for it.
    3. What is method Time Complexity?
+
+## 7. Add `InsertAt` method:
+Add `InsertAt` method:
+   - **2 Parameters**: `item` type of `int` to pass new item, `index` type of `int`.
+   - **Return**: `void` or if you like to make it **Fluent Interface** support.
+     - *HINT*: `index` must be in range of existing items, otherwise throw exception.
+
+Then follow these steps:
+   1. Make method ready.
+   2. Write *UnitTests* for it.
+   3. What is method Time Complexity?
