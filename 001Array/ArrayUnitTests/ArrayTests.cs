@@ -1,14 +1,12 @@
 ﻿/*
  * MAKE SURE TO ADD xUnit FROM Nuget TO THIS PROJECT.
  *
- * As you know, there are many "Method Naming Conventions" out there, I will be using two "Method Naming Conventions" that I like and
- * use more at below tests. I will do that JUST for learning purpose, But in real world, we should only stick to one naming convention
- * in our project based on our desire or team.
+ * As you know, there are many "Method Naming Conventions" out there. But usually I'm selecting one of these two naming conventions that I
+ * used at first two test methods.
  *
  */
 
 using System;
-using System.Linq;
 using Xunit;
 using Array = ArrayDataStructure.Array;
 
@@ -18,7 +16,7 @@ namespace ArrayUnitTests
     {
         #region [Tests of STEP 1]
         [Fact]
-        // For "Method Naming Conventions", I used this format: "ClassMethodName_StateUnderTest_ExpectedBehavior".
+        // "Method Naming Conventions" 1, "ClassMethodName_StateUnderTest_ExpectedBehavior".
         public void Constructor_SetValidLength_ArrayCreatedWithProperLengthAndCount()
         {
             // Arrange
@@ -37,7 +35,7 @@ namespace ArrayUnitTests
         [Theory()]
         [InlineData(0)]
         [InlineData(-1)]
-        // For "Method Naming Conventions", I used this format: "Should_ExpectedBehavior_When_StateUnderTest".
+        // "Method Naming Conventions" 2, "Should_ExpectedBehavior_When_StateUnderTest".
         public void ShouldConstructor_ThrowArgumentException_WhenLengthIsInvalid(int invalidLength)
         {
             // Arrange
@@ -76,7 +74,7 @@ namespace ArrayUnitTests
         {
             // Arrange
             var arrayLength = 3;
-            var items = new int[] { 100, 102};
+            var items = new int[] { 100, 102 };
             Array array = new Array(arrayLength);
 
             // Act
@@ -96,7 +94,7 @@ namespace ArrayUnitTests
         {
             // Arrange
             var arrayLength = 2;
-            var items = new int[] { 100, 102};
+            var items = new int[] { 100, 102 };
             Array array = new Array(arrayLength);
 
             // Act
@@ -111,12 +109,12 @@ namespace ArrayUnitTests
         }
 
         [Theory]
-        [InlineData(1, new []{100, 102})]
-        [InlineData(2, new []{100, 102, 103})]
-        [InlineData(3, new []{100, 102, 103, 104})]
-        [InlineData(4, new []{100, 102, 103, 104, 105})]
+        [InlineData(1, new[] { 100, 102 })]
+        [InlineData(2, new[] { 100, 102, 103 })]
+        [InlineData(3, new[] { 100, 102, 103, 104 })]
+        [InlineData(4, new[] { 100, 102, 103, 104, 105 })]
         public void Insert_ByPassArrayLength_ExpandArray(
-            int arrayLength, 
+            int arrayLength,
             int[] items)
         {
             // Arrange
@@ -125,15 +123,15 @@ namespace ArrayUnitTests
 
             // Act
             foreach (var item in items)
-                array.Insert(item);    
-            
+                array.Insert(item);
+
             //Assert
             for (int i = 0; i < items.Length; i++)
                 Assert.Equal(items[i], array.Items[i]);
             Assert.True(array.Count == items.Length);
             Assert.True(array.Items.Length == newLength);
             // If there are extra free rooms they must be null
-            for (int i = items.Length; i < newLength; i++) 
+            for (int i = items.Length; i < newLength; i++)
                 Assert.Null(array.Items[i]);
         }
         #endregion
@@ -374,7 +372,7 @@ namespace ArrayUnitTests
             Assert.Equal(totalItems, array.Count);
             Assert.Equal(0, array.IndexOf(20));
             Assert.Equal(1, array.IndexOf(10));
-            Assert.Null(array.Items[arrayLength-1]);
+            Assert.Null(array.Items[arrayLength - 1]);
         }
 
         [Fact]
@@ -419,7 +417,97 @@ namespace ArrayUnitTests
         }
         #endregion
 
+        #region [Tests for STEP 7]
+        [Fact]
+        public void InsertAt_OnFirstItem_ShiftRightOtherItems()
+        {
+            // Arrange
+            var arrayLength = 3;
+            var array = new Array(arrayLength);
+            array.Insert(1).Insert(2);
+
+            // Act
+            array.InsertAt(3, 0);
+
+            //Assert
+            Assert.Equal(3, array.Items[0]);
+            Assert.Equal(1, array.Items[1]);
+            Assert.Equal(2, array.Items[2]);
+            Assert.Equal(arrayLength, array.Items.Length);
+            Assert.Equal(arrayLength, array.Count);
+        }
+
+        [Fact]
+        public void InsertAt_OnLastItem_ShiftItRight()
+        {
+            // Arrange
+            var arrayLength = 3;
+            var array = new Array(arrayLength);
+            array.Insert(1).Insert(2);
+
+            // Act
+            array.InsertAt(3, array.Count - 1);
+
+            //Assert
+            Assert.Equal(1, array.Items[0]);
+            Assert.Equal(3, array.Items[1]);
+            Assert.Equal(2, array.Items[2]);
+            Assert.Equal(arrayLength, array.Items.Length);
+            Assert.Equal(arrayLength, array.Count);
+        }
+
+        [Fact]
+        public void InsertAt_FullArray_ExpandAndShiftOtherItemsRight()
+        {
+            // Arrange
+            var arrayLength = 3;
+            var newLength = arrayLength + (arrayLength / 2 + arrayLength % 2);
+            var array = new Array(arrayLength);
+            array.Insert(1).Insert(2).Insert(3);
+
+            // Act
+            array.InsertAt(4, 0);
+
+            //Assert
+            Assert.Equal(4, array.Items[0]);
+            Assert.Equal(1, array.Items[1]);
+            Assert.Equal(2, array.Items[2]);
+            Assert.Equal(3, array.Items[3]);
+            Assert.Equal(newLength, array.Items.Length);
+            Assert.Equal(4, array.Count);
+        }
+
+        [Fact]
+        public void InsertAt_InvalidIndex_ThrowArgumentException()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var array = new Array(arrayLength);
+            array.Insert(1);
+
+            // Act
+            var ex = Assert.Throws<ArgumentException>(() => array.InsertAt(2, 1));
+
+            //Assert
+            Assert.Equal("Index is out of range!", ex.Message);
+            Assert.Throws<ArgumentException>(() => array.InsertAt(2, -1));
+        }
+
+        [Fact]
+        public void InsertAt_EmptyArray_ThrowArgumentException()
+        {
+            // Arrange
+            var arrayLength = 2;
+            var array = new Array(arrayLength);
+
+            // Act
+            var ex = Assert.Throws<ArgumentException>(() => array.InsertAt(1, 0));
+
+            //Assert
+            Assert.Equal("Index is out of range!", ex.Message);
+        }
+        #endregion
     }
 
-    
+
 }
