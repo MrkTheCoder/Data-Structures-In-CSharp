@@ -86,3 +86,12 @@ Then follow these steps:
    1. Make method ready.
    2. Write *UnitTests* for it.
    3. What is method Time Complexity?
+
+## 8. Extra practices:
+We are done here for now! But you can continue to add extra features to it. I suggested a few at below:
+
+ - `Contain(int item)` method: search for an item and return true if it found.
+ - `Max()` method: find maximum number and return it.
+ - `Intercept(Array other)` method: find intercept items between two arrays and return them as a new `Array` object.
+ - `Sort()` method: use one of the sort algorithm to sort the array.
+ - Build generic `Array<t>` array!
