@@ -5,8 +5,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataStructureArray\ArrayDataStructure.csproj" />
-  </ItemGroup>
-
 </Project>

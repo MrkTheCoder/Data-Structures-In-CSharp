@@ -36,7 +36,7 @@ namespace ArrayUnitTests
         [InlineData(0)]
         [InlineData(-1)]
         // "Method Naming Conventions" 2, "Should_ExpectedBehavior_When_StateUnderTest".
-        public void ShouldConstructor_ThrowArgumentException_WhenLengthIsInvalid(int invalidLength)
+        public void ShouldThrowArgumentExceptionAtInstantiating_WhenLengthIsInvalid(int invalidLength)
         {
             // Arrange
             Array array;
