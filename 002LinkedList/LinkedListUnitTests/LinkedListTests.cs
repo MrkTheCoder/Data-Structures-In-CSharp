@@ -438,5 +438,50 @@ namespace LinkedListUnitTests
             Assert.Equal(0, list.Count);
         }
         #endregion
+
+        #region [Tests for STEP 10]
+        [Theory]
+        [InlineData(1, 40)] // edge cases
+        [InlineData(2, 30)]
+        [InlineData(4, 10)] // edge cases
+        public void GetKthNodeFromTheEnd_ValidKth_ReturnKthNodeValue(int kth, int expectedItem)
+        {
+            // Arrange
+            var totalItems = 4;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var item4 = 40;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3).AddLast(item4);
+            var value = list.GetKthNodeFromTheEnd(kth);
+
+            // Assert
+            Assert.Equal(expectedItem, value);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(5)]
+        public void GetKthNodeFromTheEnd_InvalidKth_ReturnKthNodeValue(int kth)
+        {
+            // Arrange
+            var totalItems = 4;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var item4 = 40;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3).AddLast(item4);
+            var ex = Assert.Throws<Exception>(() => list.GetKthNodeFromTheEnd(kth));
+
+            // Assert
+            Assert.Equal($"Your value must be between 1 and {list.Count}!", ex.Message);
+        }
+        #endregion
     }
 }

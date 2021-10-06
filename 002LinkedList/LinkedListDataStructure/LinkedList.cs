@@ -215,7 +215,53 @@ namespace LinkedListDataStructure
         }
         #endregion
 
-        // FindKthNodeFromEnd
+        #region [STEP 10]
+        public T? GetKthNodeFromTheEnd(int k)
+        {
+            // this algorithm works like this. Let assume we have 4 items in the list:
+            // 10 -> 20 -> 30 -> 40
+            // and we want 3rd item from end. (it mean 20) 
+            // 1st) we set both pointer to the Head node:
+            // 10 -> 20 -> 30 -> 40
+            // *
+            // 2nd) We move second pointer to k-1 = 3rd - 1 = 2 items away from Head:
+            // 10 -> 20 -> 30 -> 40
+            // *           *
+            // 3rd) At while we start moving both pointers to the next node:
+            // 10 -> 20 -> 30 -> 40
+            //       *           *
+            // While Exit (since second pointer is equal to Tail)
+            // 4th) firstPointer value will return. (20)
+
+            if (IsEmpty())
+                throw new Exception("Empty LinkedList");
+
+            if (k <= 0 || k > Count)
+                throw new Exception( $"Your value must be between 1 and {Count}!");
+
+            var firstPointer = Head;
+            var secondPointer = Head;
+
+            // To get Kth node from the end, we make k-1 distance between "secondPointer" and "firstPointer"
+            for (int i = 0; i < k-1; i++)
+                secondPointer = secondPointer.Next;
+            
+            // NOTE: If we didn't OR not allowed to defined "Count" property, We should use below loop instead of above one.
+            //for (int i = 0; i < k; i++)
+            //    if (secondPointer == null)
+            //        throw new ArgumentOutOfRangeException($"Your value is out of list boundary!");
+
+            // Move forward both pointers until second pointer hit the Tail node.
+            while (secondPointer != Tail)
+            {
+                firstPointer = firstPointer.Next;
+                secondPointer = secondPointer.Next;
+            }
+
+            return firstPointer.Value;
+        }
+        #endregion
+
         // AddAfter
         // RemoveBefore
     }
