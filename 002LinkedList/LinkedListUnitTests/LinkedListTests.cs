@@ -1,3 +1,4 @@
+using System;
 using LinkedListDataStructure;
 using Xunit;
 
@@ -21,16 +22,16 @@ namespace LinkedListUnitTests
             Assert.NotNull(list.Head);
             Assert.NotNull(list.Tail);
             Assert.Equal(totalItems, list.Count);
-            
+
             Assert.Null(list.Head.Next);
             Assert.Equal(item, list.Head.Value);
-            
+
             Assert.Null(list.Tail.Next);
             Assert.Equal(item, list.Tail.Value);
-            
+
             // After first node inserted, Both Head & Tail nodes are referencing the same node.
             Assert.Equal(list.Head, list.Tail);
-        } 
+        }
 
         [Fact]
         public void AddLast_AddSecondNodeAtEndOfList_HeadNextSetToNewNodeTailSetToLastNodeAndSizeSetToTwo()
@@ -47,7 +48,7 @@ namespace LinkedListUnitTests
             //          So any modification to that "node" via any of them will be reflecting on the other 
             //          one too, Since both are referencing the same node.
             Assert.Equal(list.Head, list.Tail);
-            
+
             // After we insert second item, second part of if condition in AddLast() method will executed.
             //      1st) It will set "Tail.Next" to the new "node". but since Head and Tail are referencing
             //           the first "node", then "Head.Next" also will be set automatically to point to the
@@ -83,10 +84,10 @@ namespace LinkedListUnitTests
             Assert.NotEqual(list.Head, list.Tail);
             // But, Head.Next and Tail are pointing to the same node.
             Assert.Equal(list.Head.Next, list.Tail);
-        } 
+        }
         #endregion
 
-         #region [Tests for STEP 3]
+        #region [Tests for STEP 3]
         [Fact]
         public void AddFirst_AddFirstNodeAtStartOfList_HeadAndTailWillPointToSameNodeAndSizeSetToOne()
         {
@@ -102,16 +103,16 @@ namespace LinkedListUnitTests
             Assert.NotNull(list.Head);
             Assert.NotNull(list.Tail);
             Assert.Equal(totalItems, list.Count);
-            
+
             Assert.Null(list.Head.Next);
             Assert.Equal(item, list.Head.Value);
-            
+
             Assert.Null(list.Tail.Next);
             Assert.Equal(item, list.Tail.Value);
-            
+
             // After first node inserted, Both Head & Tail nodes are referencing the same node.
             Assert.Equal(list.Head, list.Tail);
-        } 
+        }
 
         [Fact]
         public void AddFirst_AddSecondNodeToStartOfList_HeadSetToNewNodeAndTailHavePreviousNodeAndSizeSetToTwo()
@@ -127,17 +128,17 @@ namespace LinkedListUnitTests
 
             // ========= Assert
             Assert.Equal(totalItems, list.Count);
-            
+
             Assert.Equal(item2, list.Head.Value);
             Assert.Equal(item1, list.Head.Next.Value);
             Assert.Equal(item1, list.Tail.Value);
-            
+
             Assert.NotEqual(list.Head, list.Tail);
             Assert.Equal(list.Head.Next, list.Tail);
-        } 
+        }
         #endregion
 
-        #region [Tests for STEP 3]
+        #region [Tests for STEP 4]
         [Fact]
         public void IndexOf_ItemExists_ReturnItemIndex()
         {
@@ -153,7 +154,7 @@ namespace LinkedListUnitTests
 
             // Assert
             Assert.Equal(2, index);
-        } 
+        }
 
         [Fact]
         public void IndexOf_ItemNotExists_ReturnMinesOne()
@@ -169,7 +170,7 @@ namespace LinkedListUnitTests
 
             // Assert
             Assert.Equal(-1, index);
-        } 
+        }
 
         [Fact]
         public void IndexOf_EmptyLinkedList_ReturnMinesOne()
@@ -182,10 +183,10 @@ namespace LinkedListUnitTests
 
             // Assert
             Assert.Equal(-1, index);
-        } 
+        }
         #endregion
 
-        #region [Tests for STEP 3]
+        #region [Tests for STEP 5]
         [Fact]
         public void Contain_ItemExists_ReturnTrue()
         {
@@ -201,7 +202,7 @@ namespace LinkedListUnitTests
 
             // Assert
             Assert.True(isItemExist);
-        } 
+        }
 
         [Fact]
         public void Contain_ItemNotExists_ReturnFalse()
@@ -217,7 +218,167 @@ namespace LinkedListUnitTests
 
             // Assert
             Assert.False(isItemExist);
-        } 
+        }
+        #endregion
+
+        #region [Tests for STEP 6]
+        [Fact]
+        public void RemoveFirst_RemoveHeadNode_SecondNodeBecomeHeadAndCountSetProperly()
+        {
+            // Arrange
+            var totalItems = 3;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3);
+            list.RemoveFirst();
+
+            // Assert
+            Assert.Equal(item2, list.Head.Value);
+            Assert.Equal(item3, list.Head.Next.Value);
+            Assert.Equal(item3, list.Tail.Value);
+            Assert.Equal(totalItems - 1, list.Count);
+        }
+
+        [Fact]
+        public void RemoveFirst_TheOnlyNode_HeadAndTailShouldBeNullAndCountSetProperly()
+        {
+            // Arrange
+            var totalItems = 1;
+            var item1 = 10;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).RemoveFirst();
+
+            // Assert
+            Assert.Null(list.Head);
+            Assert.Null(list.Tail);
+            Assert.Equal(totalItems - 1, list.Count);
+        }
+
+        [Fact]
+        public void RemoveFirst_EmptyList_ThrowException()
+        {
+            // Arrange
+            var list = new LinkedList<int>();
+
+            // Act
+            var ex = Assert.Throws<Exception>(() => list.RemoveFirst());
+
+            // Assert
+            Assert.Equal("No node exists!", ex.Message);
+        }
+        #endregion
+
+        #region [Tests for STEP 7]
+        [Fact]
+        public void RemoveLast_RemoveTailNode_PreviousNodeBecomeTailAndCountSetProperly()
+        {
+            // Arrange
+            var totalItems = 3;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3).RemoveLast();
+
+            // Assert
+            Assert.Equal(item1, list.Head.Value);
+            Assert.Equal(item2, list.Head.Next.Value);
+            Assert.Equal(item2, list.Tail.Value);
+            Assert.Null(list.Tail.Next);
+            Assert.Null(list.Head.Next.Next);
+            Assert.Equal(totalItems - 1, list.Count);
+        }
+
+        [Fact]
+        public void RemoveLast_TheOnlyNode_HeadAndTailShouldBeNullAndCountSetProperly()
+        {
+            // Arrange
+            var totalItems = 1;
+            var item1 = 10;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).RemoveLast();
+
+            // Assert
+            Assert.Null(list.Head);
+            Assert.Null(list.Tail);
+            Assert.Equal(totalItems - 1, list.Count);
+        }
+
+        [Fact]
+        public void RemoveLast_EmptyList_ThrowException()
+        {
+            // Arrange
+            var list = new LinkedList<int>();
+
+            // Act
+            var ex = Assert.Throws<Exception>(() => list.RemoveLast());
+
+            // Assert
+            Assert.Equal("No node exists!", ex.Message);
+        }
+        #endregion
+
+        #region [Tests for STEP 8]
+        [Fact]
+        public void ToArray_SomeItemsExists_ReturnArray()
+        {
+            // Arrange
+            var totalItems = 3;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3);
+            var array = list.ToArray();
+
+            // Assert
+            Assert.Equal(item1, array[0]);
+            Assert.Equal(item2, array[1]);
+            Assert.Equal(item3, array[2]);
+            Assert.Equal(totalItems, array.Length);
+        }
+
+        [Fact]
+        public void ToArray_OneItemExist_ReturnArray()
+        {
+            // Arrange
+            var totalItems = 1;
+            var item1 = 10;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1);
+            var array = list.ToArray();
+
+            // Assert
+            Assert.Equal(item1, array[0]);
+            Assert.Equal(totalItems, array.Length);
+        }
+
+        [Fact]
+        public void ToArray_EmptyList_ReturnEmptyArray()
+        {
+            // Arrange
+            var list = new LinkedList<int>();
+
+            // Act
+            var array = list.ToArray();
+
+            // Assert
+            Assert.Empty(array);
+        }
         #endregion
     }
 }

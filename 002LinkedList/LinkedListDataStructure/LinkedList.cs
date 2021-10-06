@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 #nullable enable
 namespace LinkedListDataStructure
@@ -6,16 +8,14 @@ namespace LinkedListDataStructure
     public class LinkedList<T>
     {
         #region [STEP 1]
-        // Head & Tail should be private, but for Unit Testing purpose I defined like this.
+        // Head & Tail should be private, but for Unit Testing purpose I define them as public properties.
         public Node<T>? Head { get; set; } 
         public Node<T>? Tail { get; set; }
         public int Count { get; private set; }
 
-        // Node class should defined as private since we do not need to access it from outside
-        // But to be able to use Head/Tail properties in unit Tests, for now we defined public.
-        // Also the reason that we are defining Node class inside of LinkedList class is that
-        // we do not want to use/call it directly from outside of this class. So it is another 
-        // implementation of LinkedList which it should be encapsulated.
+        // Node class is implementation details of LinkedList it should defined as private also
+        // we do not need to access it from outside. But to be able to use Head/Tail properties
+        // in our unit Tests, for now we defined public.
         public class Node<TType>
         {
             public TType Value { get; set; }
@@ -96,6 +96,79 @@ namespace LinkedListDataStructure
         }
         #endregion
 
+        #region [STEP 6]
+        public LinkedList<T> RemoveFirst()
+        {
+            if (IsEmpty())
+                throw new Exception("No node exists!");
+
+            if (!Reset())
+            {
+                var node = Head.Next;
+                Head.Next = null;
+                Head = node;
+            }   
+            
+            Count--;
+            return this;
+        }
+
+        private bool Reset()
+        {
+            if (Head == Tail)
+            {
+                Head = Tail = null;
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region [STEP 7]
+        public LinkedList<T> RemoveLast()
+        {
+            if (IsEmpty())
+                throw new Exception("No node exists!");
+
+            if (!Reset())
+            {
+                var previous = Head;
+                while (previous is not null)
+                {
+                    if (previous.Next == Tail)
+                        break;
+                    previous = previous.Next;
+                }
+
+                Tail = previous;
+                Tail.Next = null;
+            }
+
+            Count--;
+            return this;
+        }
+        #endregion
+
+        #region [STEP 8]
+        public T[] ToArray()
+        {
+            T[] array = new T[Count];
+
+            var current = Head;
+            var index = 0;
+            while (current is not null)
+            {
+                array[index++] = current.Value;
+                current = current.Next;
+            }
+
+            return array;
+        }
+        #endregion
+
+        #region [STEP 9]
+
+        #endregion
         // DeleteFirst
         // DeleteLast
         // AddAfter
