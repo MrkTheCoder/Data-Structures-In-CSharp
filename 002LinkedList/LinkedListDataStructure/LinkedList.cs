@@ -4,14 +4,16 @@ namespace LinkedListDataStructure
     public class LinkedList<TType>
     {
         #region [STEP 1]
-        public Node<TType>? Head { get; set; } // Head should be private, but for Unit Testing purpose we defined like this.
-        public Node<TType>? Tail { get; set; } // Tail should be private, but for Unit Testing purpose we defined like this.
+        // Head & Tail should be private, but for Unit Testing purpose I defined like this.
+        public Node<TType>? Head { get; set; } 
+        public Node<TType>? Tail { get; set; }
         public int Count { get; private set; }
 
         // Node class should defined as private since we do not need to access it from outside
         // But to be able to use Head/Tail properties in unit Tests, for now we defined public.
         // Also the reason that we are defining Node class inside of LinkedList class is that
-        // we do not want to use/call it directly from outside of this class.
+        // we do not want to use/call it directly from outside of this class. So it is another 
+        // implementation of LinkedList which it should be encapsulated.
         public class Node<TType>
         {
             public TType Value { get; set; }
@@ -32,8 +34,8 @@ namespace LinkedListDataStructure
 
             // Check to see if is it first node?
             if (IsEmpty())
-                // If you want to know how LinkedList works, these three next line are the most important lines,
-                // that you should understand them very well.
+                // If you want to know how LinkedList works, these next three lines are the most important lines,
+                // that you should understand them very well. Please check LinkedListUnitTests\"region [Tests for STEP 2]" 
                 Head = Tail = node;
             else
             {
@@ -48,7 +50,9 @@ namespace LinkedListDataStructure
         private bool IsEmpty() => Head == null;
         #endregion
 
-
+        #region [STEP 3]
+        
+        #endregion
         // AddLast
         // DeleteFirst
         // DeleteLast
