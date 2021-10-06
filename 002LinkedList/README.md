@@ -15,7 +15,7 @@ Create new `LinkedList<T>` class file with these Conditions:
   - A `public` property of type `Node<T>` to store tail of list address.
   - A `public` property of type `int` to count list items.
 
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define Head/Tail and Node Class as public members of LinkedList, but just for unit tests purpose we did that.
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define Head/Tail and Node Class as public members of LinkedList, but just for unit tests purpose I did that.
 
 
 *~~To Be Continue ...~~*
