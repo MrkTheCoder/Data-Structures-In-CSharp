@@ -1,5 +1,5 @@
 ﻿#nullable enable
-namespace LinkedListDataStructure
+namespace LinkedArrayDataStructure
 {
     public class LinkedList<TType>
     {

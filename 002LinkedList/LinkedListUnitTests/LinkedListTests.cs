@@ -1,4 +1,4 @@
-using LinkedArrayDataStructure;
+using LinkedListDataStructure;
 using Xunit;
 
 namespace LinkedListUnitTests
