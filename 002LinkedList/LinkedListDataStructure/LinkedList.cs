@@ -167,13 +167,56 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 9]
+        public LinkedList<T> Reverse()
+        {
+            // Below algorithm works like this. Suppose that we have 10,20,30,40 in the list.
+            // 10 -> 20 -> 30 -> 40
+            // p     c
+            // While start
+            //             n
+            // 10 <- 20    30 -> 40 current.Next = previous;
+            //       p
+            //              c 
+            // While restart
+            //                    n
+            // 10 <- 20 <- 30    40 current.Next = previous;
+            //             p
+            //                   c
+            // While restart
+            // n = null
+            // 10 <- 20 <- 30 <- 40 current.Next = previous;
+            //                   p
+            // c = null
+            // While Exit
+            // 
+            // Tail = Head
+            // Tail.Next = null (It was pointing to 20)
+            // Head = p (Now node p is 40 which have chain of Next nodes of 30 to 20 to 10)
 
+            if (IsEmpty())
+                return this; // No need to throw exception!
+
+            var previous = Head;
+            var current = Head.Next;
+            // If we only have one item in the list, below loop will bypass
+            while (current is not null) // We reach to the Tail
+            {
+                var next = current.Next; // Store 3rd node address
+                current.Next = previous;
+                previous = current;
+                current = next;
+            }
+
+            Tail = Head;
+            Tail.Next = null;
+            Head = previous;
+
+            return this;
+        }
         #endregion
-        // DeleteFirst
-        // DeleteLast
+
+        // FindKthNodeFromEnd
         // AddAfter
         // RemoveBefore
-        // Reverse
-        // FindKthNodeFromEnd
     }
 }

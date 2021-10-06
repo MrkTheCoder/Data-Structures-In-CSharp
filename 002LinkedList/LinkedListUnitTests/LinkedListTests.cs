@@ -380,5 +380,63 @@ namespace LinkedListUnitTests
             Assert.Empty(array);
         }
         #endregion
+
+        #region [Tests for STEP 9]
+        [Fact]
+        public void Reverse_SomeItemsExists_ReturnReversedList()
+        {
+            // Arrange
+            var totalItems = 3;
+            var item1 = 10;
+            var item2 = 20;
+            var item3 = 30;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).AddLast(item3).Reverse();
+
+            // Assert
+            Assert.Equal(item3, list.Head.Value);
+            Assert.Equal(item2, list.Head.Next.Value);
+            Assert.Equal(item1, list.Head.Next.Next.Value);
+            Assert.Equal(item1, list.Tail.Value);
+            Assert.Null(list.Tail.Next);
+            Assert.Equal(totalItems, list.Count);
+        }
+
+        [Fact]
+        public void Reverse_OneItemOnly_ReturnSameList()
+        {
+            // Arrange
+            var totalItems = 1;
+            var item1 = 10;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).Reverse();
+
+            // Assert
+            Assert.Equal(item1, list.Head.Value);
+            Assert.Null(list.Head.Next);
+            Assert.Equal(item1, list.Tail.Value);
+            Assert.Null(list.Tail.Next);
+            Assert.Equal(totalItems, list.Count);
+        }
+
+        [Fact]
+        public void Reverse_Empty_NothingHappen()
+        {
+            // Arrange
+            var list = new LinkedList<int>();
+
+            // Act
+            list.Reverse();
+
+            // Assert
+            Assert.Null(list.Head);
+            Assert.Null(list.Tail);
+            Assert.Equal(0, list.Count);
+        }
+        #endregion
     }
 }
