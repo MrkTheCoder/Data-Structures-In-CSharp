@@ -44,7 +44,8 @@ I add some comments in unit test methods related to this method to explain how `
 
 ## 3. Add `AddFirst` method:
 `AddFirst(T item)` method will add a new item to the beginning of  `LinkedList`. 
-![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Define `AddFirst` method with:
+
+  ![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Define `AddFirst` method with:
    - **1 Parameter**: of type T. It will be added to the beginning of `LinkedList`.
    - **Return**: `void` or if you like to make it **Fluent Interface**, set return type as `LinkedList<T>`.
 
