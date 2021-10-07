@@ -24,6 +24,8 @@ Define `AddLast` method with:
    - **1 Parameter**: of type T. It will be added to the end of `LinkedList`.
    - **Return**: `void` or, if you like to make it **Fluent Interface**, set return type as `LinkedList<T>`.
 
+💡: Don't forget about `Count` property.
+
 Then follow these steps:
    1. Make this method ready to add new item into the `LinkedList`.
    2. Write *UnitTest* to make sure it is working properly.
@@ -44,6 +46,7 @@ Then follow these steps:
 
 ## 4. Add `IndexOf` method:
 `IndexOf(T item)` method will compare each `Node.Value` property of `LinkedList` with inserted `item`, and if it found a match, then it will return the index of that node. Otherwise -1. As you know, `LinkedList` does not work with index like Array's do. So! Find a way! 😁
+
 Define `IndexOf` method with:
    - **1 Parameter**: of type T. It will be compared with each `Node.Value` in the `LinkedList`.
    - **Return**: `int` type. Index of node based on its distance from Head.(Zero Based) or -1, for not exist items.
@@ -56,9 +59,9 @@ Then follow these steps:
 NOTE: Please, check my comments at this method.
 
 ## 5. Add `Contain` method:
-`Contain(T item)` method will compare each `Node.Value` property of `LinkedList` with inserted `item`, and then it will return `true` or `false` based on the result. 
-**HINT:** Respect DRY principle! 😉 (Don't Repeat Yourself)
-Define `Contain` method with:
+`Contain(T item)` method check the `LinkedList` to see if inserted `item` exits or not. 
+
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png)Define `Contain` method with:
    - **1 Parameter**: of type T. It will be compared with each `Node.Value` in the `LinkedList`.
    - **Return**: `boolean` type.
 
@@ -66,6 +69,9 @@ Then follow these steps:
    1. Write this method.
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
+
+💡 Respect DRY principle! 😉 (Don't Repeat Yourself)
+
 
 
 *~~To Be Continue ...~~*
