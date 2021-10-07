@@ -135,9 +135,11 @@ Then follow these steps:
    3. What is the method Time Complexity?
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any help*] Let assume we have this `LinkedList` Items:
-10 -> 20 -> 30 -> 40
+
+  10 -> 20 -> 30 -> 40
 What we like to do at start is changing 2nd `node.Next` direction from 3rd node to the first node. Right!? Like this:
-10 <- 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 -> 40
+
+  10 <- 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 -> 40
 But if we do that, we will lose the link to the 3rd node! Therefore, We have to first save that link in a variable (Let us call it `next`), then act on reversing the direction on 2nd `Node.Next`. After we're done with 2nd Node, we have 3rd Node address in that `next` variable.  
 Try to do solve this problem yourself, even if it takes days to solve! I wrote full comments in this method about how my algorithm works.
 
