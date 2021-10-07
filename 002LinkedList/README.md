@@ -31,7 +31,7 @@ Then follow these steps:
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
 
-I add many comments not only at this method but also at Unit Tests class in region "[Tests for STEP 2]". Please check them after you wrote above method by your own.-run all *UnitTests* again.
+I add some comments to explain some tips about how LinkedList works. These comments are exists in both of this method and its Unit Tests related methods under region "[Tests for STEP 2]". Specially the way I did all Assertions in unit tests, they should explain how this list works. Please check these comments after you wrote it yourself.
 
 ## 3. Add `AddFirst` method:
 `AddFirst(T item)` method will add a new item to the beginning of  `LinkedList`. 
