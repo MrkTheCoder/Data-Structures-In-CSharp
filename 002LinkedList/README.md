@@ -1,4 +1,3 @@
-
 # LinkedList\<T\>
 We will write a generic `LinkedList<T>` class step by step. Each `item` in `LinkedList` have an address of their next `item`. (Also they can have address of previous item too) So each `Node` will have 2 pieces of information: `Value` of item that store and an address of the next `Node`. We call the first node `Head` and the last node `Tail`. Let's assume we have 3 integers in our `LinkedList`:
 
@@ -153,11 +152,19 @@ Then follow these steps:
    3. What is the method Time Complexity?
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any tips*] Let assume we have this `LinkedList` Items:
+
 10 -> 20 -> 30 -> 40
+
 We want 3rd node from the end. (which it is 20) To solve this we can use 2 pointers, one get away 2 nodes from the first one (3rd - 1 = 2) :
+
 10 -> 20 -> 30 -> 40
+
 \*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*
+
 Then we move both to the `Next` nodes:
+
 10 -> 20 -> 30 -> 40
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*
+
 If the last node reach to the `Tail`, then the first node will be at the right position.
