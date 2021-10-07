@@ -61,7 +61,7 @@ NOTE: Please, check my comments at this method.
 ## 5. Add `Contain` method:
 `Contain(T item)` method check the `LinkedList` to see if inserted `item` exits or not. 
 
-![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png)Define `Contain` method with:
+![Gear_Config_v2](https://user-images.githubusercontent.com/25789969/136388347-9a594912-d0c5-47a7-8e78-d99e990bdf03.png)Define `Contain` method with:
    - **1 Parameter**: of type T. It will be compared with each `Node.Value` in the `LinkedList`.
    - **Return**: `boolean` type.
 
