@@ -108,7 +108,7 @@ Then follow these steps:
 
 **Note**: Please check my comments.
 
-  ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) Just a small hint: We should loop from first to the last node and while we do this, remember the previous node so when we hit the `Tail`, we have its previous node.
+  ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any help*] Just a small hint: We should loop from first to the last node and while we do this, remember the previous node so when we hit the `Tail`, we have its previous node.
 
 ## 8. Add `ToArray` method:
 Add `ToArray()` method to return `T[]` array of the `LinkedList`. 
@@ -134,7 +134,7 @@ Then follow these steps:
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any tips*] Let assume we have this `LinkedList` Items:
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any help*] Let assume we have this `LinkedList` Items:
 10 -> 20 -> 30 -> 40
 What we like to do at start is changing 2nd `node.Next` direction from 3rd node to the first node. Right!? Like this:
 10 <- 20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 -> 40
@@ -153,7 +153,7 @@ Then follow these steps:
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any tips*] Let assume we have this `LinkedList` Items:
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) [*Do not read my tip If you wanna do it yourself without any help*] Let assume we have this `LinkedList` Items:
 
 10 -> 20 -> 30 -> 40
 
