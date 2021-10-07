@@ -96,7 +96,6 @@ Then follow these steps:
 
 ## 7. Add `RemoveLast` method:
 Add `RemoveLast()` method to remove last node from the `LinkedList`.  This practice really take your time. 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) Just a small hint: We should loop from first to the last node and while we do this, remember the previous node so when we hit the `Tail`, we have its previous node.
 
 ![Gear_Config_v2](https://user-images.githubusercontent.com/25789969/136388347-9a594912-d0c5-47a7-8e78-d99e990bdf03.png)  Define `RemoveLast` method with:
    - **No Parameter**.
@@ -108,6 +107,8 @@ Then follow these steps:
    3. What is the method Time Complexity?
 
 **Note**: Please check my comments.
+
+  ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) Just a small hint: We should loop from first to the last node and while we do this, remember the previous node so when we hit the `Tail`, we have its previous node.
 
 ## 8. Add `ToArray` method:
 Add `ToArray()` method to return `T[]` array of the `LinkedList`. 
