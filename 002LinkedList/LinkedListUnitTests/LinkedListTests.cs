@@ -297,7 +297,28 @@ namespace LinkedListUnitTests
             Assert.Equal(totalItems - 1, list.Count);
         }
 
-        [Fact]
+        [Fact] // Edge case
+        public void RemoveLast_TwoNodeExits_HeadEqualToTailAndCountSetProperly()
+        {
+            // Arrange
+            var totalItems = 2;
+            var item1 = 10;
+            var item2 = 20;
+            var list = new LinkedList<int>();
+
+            // Act
+            list.AddLast(item1).AddLast(item2).RemoveLast();
+
+            // Assert
+            Assert.Equal(item1, list.Head.Value);
+            Assert.Equal(item1, list.Tail.Value);
+            Assert.Null(list.Tail.Next);
+            Assert.Null(list.Head.Next);
+            Assert.Equal(list.Head, list.Tail);
+            Assert.Equal(totalItems - 1, list.Count);
+        }
+
+        [Fact]  // Edge case
         public void RemoveLast_TheOnlyNode_HeadAndTailShouldBeNullAndCountSetProperly()
         {
             // Arrange
@@ -350,7 +371,7 @@ namespace LinkedListUnitTests
             Assert.Equal(totalItems, array.Length);
         }
 
-        [Fact]
+        [Fact] // Edge case
         public void ToArray_OneItemExist_ReturnArray()
         {
             // Arrange
@@ -404,7 +425,7 @@ namespace LinkedListUnitTests
             Assert.Equal(totalItems, list.Count);
         }
 
-        [Fact]
+        [Fact]  // Edge case
         public void Reverse_OneItemOnly_ReturnSameList()
         {
             // Arrange

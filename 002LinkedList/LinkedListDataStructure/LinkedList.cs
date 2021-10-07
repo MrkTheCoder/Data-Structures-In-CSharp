@@ -29,11 +29,11 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 2]
-        public LinkedList<T> AddLast(T item)
+        public LinkedList<T> AddLast(T item) // O(1)
         {
             var node = new Node<T>(item);
 
-            // Check to see if is it first node?
+            // Check to see if the list is empty?
             if (IsEmpty())
                 // If you want to know how LinkedList works, these next three lines are the most important lines,
                 // that you should understand them very well. Please check LinkedListUnitTests\"region [Tests for STEP 2]" 
@@ -52,11 +52,11 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 3]
-        public LinkedList<T> AddFirst(T item)
+        public LinkedList<T> AddFirst(T item) // O(1)
         {
             var node = new Node<T>(item);
 
-            // Check to see if is it first node?, we created this logic at STEP 1.
+            // Check to see if the list is empty. We created this logic at STEP 2 and reuse it again.
             if (IsEmpty())
                 Head = Tail = node;
             else
@@ -71,17 +71,18 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 4]
-        public int IndexOf(T item)
+        public int IndexOf(T item) // O(n)
         {
             var index = 0;
             var node = Head;
-            while (node is not null)
+            while (node is not null) // If node is null, either list is empty or we reach to Tail.Next. 
             {
                 // NOTE: if T is a reference type, we should implement IEquatable<T> interface on T.
                 if (node.Value != null && node.Value.Equals(item))
                     return index;
 
                 index++;
+                // Go to the next node! This is how we loop over LinkedLists:
                 node = node.Next;
             }
 
@@ -90,18 +91,18 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 5]
-        public bool Contain(T item)
-        {
-            return IndexOf(item) != -1;
-        }
+        public bool Contain(T item) // O(n)
+            => IndexOf(item) != -1;
         #endregion
 
         #region [STEP 6]
-        public LinkedList<T> RemoveFirst()
+        public LinkedList<T> RemoveFirst() // O(1)
         {
             if (IsEmpty())
                 throw new Exception("No node exists!");
 
+            // We should check, if there are only one item in the list,
+            // Then Set both Head & Tail to null. (Reset the list)
             if (!Reset())
             {
                 var node = Head.Next;
@@ -125,20 +126,20 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 7]
-        public LinkedList<T> RemoveLast()
+        public LinkedList<T> RemoveLast() // O(n)
         {
             if (IsEmpty())
                 throw new Exception("No node exists!");
-
+            
             if (!Reset())
             {
                 var previous = Head;
-                while (previous is not null)
-                {
-                    if (previous.Next == Tail)
-                        break;
+                // Based on our both previous checks (IsEmpty() & Reset() methods)
+                // for sure we at least have 2 items in the list. so "previous" and
+                // "previous.Next" at left side of this equation "(previous.Next != Tail)"
+                // will never be null.
+                while (previous.Next != Tail) 
                     previous = previous.Next;
-                }
 
                 Tail = previous;
                 Tail.Next = null;
@@ -150,7 +151,7 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 8]
-        public T[] ToArray()
+        public T[] ToArray() // O(n)
         {
             T[] array = new T[Count];
 
@@ -167,9 +168,18 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 9]
-        public LinkedList<T> Reverse()
+        public LinkedList<T> Reverse() // O(n)
         {
             // Below algorithm works like this. Suppose that we have 10,20,30,40 in the list.
+            // 3 letters under each node stand for:  p = Previous     c = Current     n = Next
+            // Nodes are:
+            //      10 -> 20 -> 30 -> 40
+            // After "IsEmpty()" check done, execution will go like these:
+
+            if (IsEmpty())
+                return this; // No need to throw exception!
+
+            //
             // 10 -> 20 -> 30 -> 40
             // p     c
             // While start
@@ -183,18 +193,15 @@ namespace LinkedListDataStructure
             //             p
             //                   c
             // While restart
-            // n = null
+            //                         n (null)
             // 10 <- 20 <- 30 <- 40 current.Next = previous;
             //                   p
-            // c = null
+            // c = n (null)
             // While Exit
             // 
             // Tail = Head
-            // Tail.Next = null (It was pointing to 20)
-            // Head = p (Now node p is 40 which have chain of Next nodes of 30 to 20 to 10)
-
-            if (IsEmpty())
-                return this; // No need to throw exception!
+            // Tail.Next = null (Still, It was pointing to 20)
+            // Head = p (Now node p is 40 which have chain of Next nodes to 30 to 20 to 10)
 
             var previous = Head;
             var current = Head.Next;
@@ -216,22 +223,23 @@ namespace LinkedListDataStructure
         #endregion
 
         #region [STEP 10]
-        public T? GetKthNodeFromTheEnd(int k)
+        public T? GetKthNodeFromTheEnd(int k) // O(n)
         {
             // this algorithm works like this. Let assume we have 4 items in the list:
             // 10 -> 20 -> 30 -> 40
             // and we want 3rd item from end. (it mean 20) 
+            //
             // 1st) we set both pointer to the Head node:
             // 10 -> 20 -> 30 -> 40
             // *
-            // 2nd) We move second pointer to k-1 = 3rd - 1 = 2 items away from Head:
+            // 2nd) We move second pointer to k-1 = 3 - 1 = 2 items away from Head:
             // 10 -> 20 -> 30 -> 40
             // *           *
             // 3rd) At while we start moving both pointers to the next node:
             // 10 -> 20 -> 30 -> 40
             //       *           *
             // While Exit (since second pointer is equal to Tail)
-            // 4th) firstPointer value will return. (20)
+            // 4th) firstPointer.Value has our desire 3rd item. (20)
 
             if (IsEmpty())
                 throw new Exception("Empty LinkedList");
@@ -261,8 +269,5 @@ namespace LinkedListDataStructure
             return firstPointer.Value;
         }
         #endregion
-
-        // AddAfter
-        // RemoveBefore
     }
 }
