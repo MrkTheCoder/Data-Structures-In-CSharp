@@ -1,12 +1,21 @@
-# LinkedList<T>
-We will write a generic LinkedList class step by step.
+
+# LinkedList\<T\>
+We will write a generic `LinkedList<T>` class step by step. Each `item` in `LinkedList` have an address of their next `item`. (Also they can have address of previous item too) So each `Node` will have 2 pieces of information: `Value` of item that store and an address of the next `Node`. We call the first node `Head` and the last node `Tail`. Let's assume we have 3 integers in our `LinkedList`:
+
+|Node|Head|node|Tail|
+|--|--|--|--|
+|Value|10|20|30|
+|Next|2nd Node|3rd Node|null|
+
+Or for simplicity we can write it like this:
+10 -> 20 -> 30
 
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
 For this exercise, please follow the below steps. 
 
 ## 1. Build `LinkedList<T>` & `Node<T>` classes
-Create new `LinkedList<T>` class file with these Conditions:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Create new `LinkedList<T>` class file with these Conditions:
 - Class members:
   - `public` class Node<T> inside it with these members:
     - A `public` property of type `T` to store value.
@@ -19,8 +28,9 @@ Create new `LinkedList<T>` class file with these Conditions:
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define Head/Tail and Node Class as public members of `LinkedList`, but just for unit test's purpose I did that.
 
 ## 2. Add `AddLast` method:
-`AddLast(T item)` method will add a new item to the end of  `LinkedList`. 
-Define `AddLast` method with:
+`AddLast(T item)` method will add a new item to the end of  `LinkedList`.
+ 
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Define `AddLast` method with:
    - **1 Parameter**: of type T. It will be added to the end of `LinkedList`.
    - **Return**: `void` or, if you like to make it **Fluent Interface**, set return type as `LinkedList<T>`.
 
@@ -31,11 +41,11 @@ Then follow these steps:
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
 
-I add some comments to explain some tips about how LinkedList works. These comments are exists in both of this method and its Unit Tests related methods under region "[Tests for STEP 2]". Specially the way I did all Assertions in unit tests, they should explain how this list works. Please check these comments after you wrote it yourself.
+I add some comments in unit test methods related to this method to explain how `LinkedList` works. Check `LinkedListUnitTests` class, region "[Tests for STEP 2]", after you wrote it yourself.
 
 ## 3. Add `AddFirst` method:
 `AddFirst(T item)` method will add a new item to the beginning of  `LinkedList`. 
-Define `AddFirst` method with:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Define `AddFirst` method with:
    - **1 Parameter**: of type T. It will be added to the beginning of `LinkedList`.
    - **Return**: `void` or if you like to make it **Fluent Interface**, set return type as `LinkedList<T>`.
 
@@ -151,5 +161,3 @@ Then we move both to the `Next` nodes:
 10 -> 20 -> 30 -> 40
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*
 If the last node reach to the `Tail`, then the first node will be at the right position.
-
-
