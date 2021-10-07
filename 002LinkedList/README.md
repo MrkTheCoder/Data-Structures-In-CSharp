@@ -1,5 +1,9 @@
 # LinkedList\<T\>
-We will write a generic `LinkedList<T>` class step by step. Each `item` in `LinkedList` have an address of their next `item`. (Also they can have address of previous item too) So each `Node` will have 2 pieces of information: `Value` of item that store and an address of the next `Node`. We call the first node `Head` and the last node `Tail`. Let's assume we have 3 integers in our `LinkedList`:
+We will write a generic `LinkedList<T>` class step by step. Each object in `LinkedList` have an address of their next object. (Also they can have address of previous object too) We call these objects, `Node`. Each `Node` contains 2 pieces of information: 
+- `Value` of an item that it store it.
+- An address of the next 'Node'.
+
+Each item we add to a `LinkedList`, it will be wrapped in a `Node` object. There are to special nodes in each `LinkedList`. We call the first node `Head` and the last node `Tail`. Let's assume we have 3 integers (10 & 20 & 30) and we want to store them in a `LinkedList`. So each integer will wrap in a Node like this:
 
 |Node|Head|node|Tail|
 |--|--|--|--|
@@ -7,6 +11,7 @@ We will write a generic `LinkedList<T>` class step by step. Each `item` in `Link
 |Next|2nd Node|3rd Node|null|
 
 Or for simplicity we can write it like this:
+
 10 -> 20 -> 30
 
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
@@ -24,7 +29,7 @@ For this exercise, please follow the below steps.
   - A `public` property of type `Node<T>` to store tail of list address.
   - A `public` property of type `int` to count list items.
 
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define Head/Tail and Node Class as public members of `LinkedList`, but just for unit test's purpose I did that.
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define `Head`/`Tail` and `Node` class as public members of `LinkedList`, but just for unit test's purpose I did that.
 
 ## 2. Add `AddLast` method:
 `AddLast(T item)` method will add a new item to the end of  `LinkedList`.
