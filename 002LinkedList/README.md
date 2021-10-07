@@ -168,3 +168,12 @@ Then we move both to the `Next` nodes:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*
 
 If the last node reach to the `Tail`, then the first node will be at the right position.
+
+## Extra practices:
+
+We are done here! But you can continue to add extra features to it. Here are some ideas:
+
+- Write `AddAfter(T item, T newItem)` method: `newItem` of type `T` will be added after `item`, if it found in the list.
+- Write `AddBefore(T item, T newItem)` method: `newItem` of type `T` will be added after `item`, if it found in the list.
+- Add `Before` property of type `Node` to the `Node` class members and store address of both `Next` and `Before` nodes of each item in the `LinkedList`.
+  - Now, try to see which methods can use this new `Before` property to make their logic easier.
