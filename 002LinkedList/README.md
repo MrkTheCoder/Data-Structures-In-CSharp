@@ -1,18 +1,49 @@
 # LinkedList\<T\>
-We will write a generic `LinkedList<T>` class step by step. Each object in `LinkedList` have an address of their next object. (Also they can have address of previous object too) We call these objects, `Node`. Each `Node` contains 2 pieces of information: 
-- `Value` of an item that it store it.
-- An address of the next 'Node'.
+We will write a generic `LinkedList<T>` class step by step. But before that, If you do not know what is a linked list are, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
+Linked Lists store each item that we insert in the list inside a new object and linked these objects together like each object knows what object is next to it. We call these objects `Node`. Each `Node` at least contains 2 pieces of information: 
+- `Value` Property: It stores the item.
+- `Next` Property of the same type of Node: It stores address of the next `Node`.
 
-Each item we add to a `LinkedList`, it will be wrapped in a `Node` object. There are to special nodes in each `LinkedList`. We call the first node `Head` and the last node `Tail`. Let's assume we have 3 integers (10 & 20 & 30) and we want to store them in a `LinkedList`. So each integer will wrap in a Node like this:
+Linked lists works like this: When first `item` insert in the list, a new `Node` object will store item in its `Value` property and its `Next` property stay null. Let's assume we're inserting integer 10 in our `LinkedList` as a first item:
 
-|Node|Head|node|Tail|
+|Nodes:|node1|
+|--|--|
+|Value|10|
+|Next|Null|
+
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) I put index for first node (node1), I shouldn't do that. I just did it so for next examples you know which node will store in the `Next` row. In code which soon we will write, we only store `Node` address in the `Next` property.
+
+Now, when the next `item` inserted, Another new `Node` will be created and above process will be repeated except a new thing happen. The previous `Node` will store the new `Node` address inside its `Next` property. This is the way each `Node` know about its next `Node`.  Let's continue our previous example. Now we will insert integer 20 in our `LinkedList` as second item:
+
+|Nodes:|node1|node2|
+|--|--|--|
+|Value|10|20|
+|Next|**node2**|null|
+
+and for the 3rd item, integer 30, `LinkedList` will be look like this:
+|Nodes:|node1|node2|node3|
 |--|--|--|--|
 |Value|10|20|30|
-|Next|2nd Node|3rd Node|null|
+|Next|**node2**|**node3**|null|
 
 Or for simplicity we can write it like this:
 
 10 -> 20 -> 30
+
+There are 2 special nodes in each `LinkedList`. We call the first node `Head` and the last node `Tail`. So with these new names, above table should be look like this:
+|Nodes:|Head|node2|Tail|
+|--|--|--|--|
+|Value|10|20|30|
+|Next|**node2**|**Tail**|null|
+
+
+We have 2 kinds of `LinkedList`:
+-  **Singly**: each node only know about its next node address.
+- **Doubly**: each node knows both next and previous nodes addresses.
+
+We will create **Singly** type first and when you know how it works then you can change it to support **Doubly** type too. 
+
+
 
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
