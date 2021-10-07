@@ -70,7 +70,7 @@ Then follow these steps:
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity?
 
-💡 Respect DRY principle! 😉 (Don't Repeat Yourself)
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png) Respect DRY principle! 😉 (Don't Repeat Yourself)
 
 
 
