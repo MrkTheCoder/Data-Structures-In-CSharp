@@ -1,47 +1,70 @@
+# LinkedList\<T
 # LinkedList\<T\>
-We will write a generic `LinkedList<T>` class step by step. But before that, If you do not know what is a linked list are, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
-Linked Lists store each item that we insert in the list inside a new object and linked these objects together like each object knows what object is next to it. We call these objects `Node`. Each `Node` at least contains 2 pieces of information: 
-- `Value` Property: It stores the item.
-- `Next` Property of the same type of Node: It stores address of the next `Node`.
+We will write a generic `LinkedList<T>` class step by step. But before that, If you do not know what is a linked list is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
 
-Linked lists works like this: When first `item` insert in the list, a new `Node` object will store item in its `Value` property and its `Next` property stay null. Let's assume we're inserting integer 10 in our `LinkedList` as a first item:
+**What is a `LinkedList`?**
+We are using `LinkedList` to store a list of items in sequence. Unlike Arrays, `LinkList`s can grow and shrink automatically.
+
+**What is `LinkedList` Structure?**
+Linked Lists store each inserted item in a new object, and then it creates a link between these objects.  In this way, each object knows what object is next to it. We call these objects `Node`. Each `Node` at least own 2 pieces of data: 
+- `Value` Property: our `item` will be store in this property. So `Value` type should be the same as our `item` type.
+- `Next` Property: Its type is `Node` and Its job is to store address of the next `Node`.
+
+**How is it working?**
+Linked lists works like this: When first `item` insert in the list, a new `Node` object will store the `item` in its `Value` property and its `Next` property stay null, because there are no `Node` exists after it yet. Let's assume we're inserting integer 10 in our `LinkedList` as a first item. It will store like this in first `Node` at `LinkedList`:
 
 |Nodes:|node1|
 |--|--|
 |Value|10|
 |Next|Null|
 
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) I put index for first node (node1), I shouldn't do that. I just did it so for next examples you know which node will store in the `Next` row. In code which soon we will write, we only store `Node` address in the `Next` property.
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) I put index for first node (node1), I shouldn't do that. I just did it, so for next examples you know which node will store in the `Next` row. In code - which soon we will write - we will only store next `Node` address inside the `Next` property of previous `Node`. (Which in above example, I mean `node1.Next`)
 
-Now, when the next `item` inserted, Another new `Node` will be created and above process will be repeated except a new thing happen. The previous `Node` will store the new `Node` address inside its `Next` property. This is the way each `Node` know about its next `Node`.  Let's continue our previous example. Now we will insert integer 20 in our `LinkedList` as second item:
+Now, when the next `item` inserted, Another new `Node` will be created and above process will be repeated except a new thing happen. The previous `Node` will store the new `Node` address inside its `Next` property. (`node1.Next = node2`) This is the way that each `Node` know about its next `Node`.  Let's continue our previous example. Now we will insert integer 20 in our `LinkedList` as second item:
 
 |Nodes:|node1|node2|
 |--|--|--|
 |Value|10|20|
 |Next|**node2**|null|
 
-and for the 3rd item, integer 30, `LinkedList` will be look like this:
+Now, `node1.Next` have address of `node2`. Then for the 3rd item, integer 30, `LinkedList` will be look like this:
 |Nodes:|node1|node2|node3|
 |--|--|--|--|
 |Value|10|20|30|
 |Next|**node2**|**node3**|null|
 
-Or for simplicity we can write it like this:
+So we will have equations like these:
+
+    node1.Next = node2;
+
+    node2.Next = node3;
+
+We can simplify above 2 equations to become:
+
+    node1.Next.Next = node3;
+
+Therefore, we can get any of nodes via `node1`, by moving forward and step by step through each `node.Next` until we reach to the last node. (`node3`)
+
+We can simplify above tables and write something like this too:
 
 10 -> 20 -> 30
 
-There are 2 special nodes in each `LinkedList`. We call the first node `Head` and the last node `Tail`. So with these new names, above table should be look like this:
+There are 2 special nodes in each `LinkedList`:
+- Head: We call the first node `Head`.
+- Tail: the last node called `Tail`. 
+
+So with these new names, the last table should be look like this:
 |Nodes:|Head|node2|Tail|
 |--|--|--|--|
 |Value|10|20|30|
 |Next|**node2**|**Tail**|null|
 
 
-We have 2 kinds of `LinkedList`:
+Also, We have 2 kinds of `LinkedList`:
 -  **Singly**: each node only know about its next node address.
 - **Doubly**: each node knows both next and previous nodes addresses.
 
-We will create **Singly** type first and when you know how it works then you can change it to support **Doubly** type too. 
+We will create **Singly** type of `LinkedList` at the start and when you become familiar with it and know how it works then you can change it to support **Doubly** type too. 
 
 
 
