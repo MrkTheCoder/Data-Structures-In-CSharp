@@ -2,19 +2,25 @@
 # LinkedList\<T\>
 We will write a generic `LinkedList<T>` class step by step. But before that, If you do not know what is a linked list is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
 
+&nbsp;
 
+&nbsp;
 **What is a `LinkedList`?**
 
-We are using `LinkedList` to store a list of items in sequence. Unlike Arrays, `LinkList`s can grow and shrink automatically.
+We are using `LinkedList` to store a list of items in sequence. Unlike Arrays, `LinkedList`s can grow or shrink automatically.
 
+&nbsp;
 
+&nbsp;
 **Structure of `LinkedList`?**
 
 Linked Lists store each inserted item in a new object, and then it creates a link between these objects.  In this way, each object knows what object is next to it. We call these objects `Node`. Each `Node` at least own 2 pieces of data: 
 - `Value` Property: our `item` will be store in this property. So `Value` type should be the same as our `item` type.
 - `Next` Property: Its type is `Node` and Its job is to store address of the next `Node`.
 
+&nbsp;
 
+&nbsp;
 **How Linked Lists works?**
 
 When we are inserting first `item` into the list, a new `Node` object will store the `item` in its `Value` property and since it is the only node in the list, its `Next` property stay null. Let's use a practical example and insert integer 10 in our `LinkedList` as a first item. Our item will be stored like this in first `Node` of `LinkedList`:
