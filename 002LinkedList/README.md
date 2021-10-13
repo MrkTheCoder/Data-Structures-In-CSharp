@@ -1,4 +1,3 @@
-# LinkedList\<T
 # LinkedList\<T\>
 We will write a generic `LinkedList<T>` class step by step. But before that, If you do not know what is a linked list is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
 
