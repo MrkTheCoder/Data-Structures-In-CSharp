@@ -53,6 +53,7 @@ Define `Push` method with:
    - **Return**: `void` or make it **Fluent Interface** support.
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget about `Count` property.
+
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget to expand array when it needed.
 
 Then follow these steps:
@@ -62,10 +63,10 @@ Then follow these steps:
 
 
 ## 3. Add `Peek` method:
-`Peek` method will return the top item in `Stack` without remove it.
+`Peek` method will return the top item in `Stack` **without** remove it.
  
 ![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) 
-Define `Push` method with:
+Define `Peek` method with:
    - **No Parameter**..
    - **Return**: type of `T?`.
 
@@ -78,17 +79,26 @@ Then follow these steps:
 
 
 ## 4. Add `Pop` method:
-`Peek` method will return the top item in `Stack` without remove it.
+`Pop` method will return the top item in `Stack` and **remove** it too.
  
 ![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) 
-Define `Push` method with:
+Define `Pop` method with:
    - **No Parameter**..
    - **Return**: type of `T?`.
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for `Stack` to be not empty.
 
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for total items in `Stack`.
+
 Then follow these steps:
    1. Make this method ready.
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity? 
+
+## 5. Override `ToString` method:
+Override `ToString` method to return stack in this format: `[x, y, z]`.
+ 
+Then follow these steps:
+   1. Make this method ready.
+   2. Write *UnitTest* to make sure it is working properly.
 
