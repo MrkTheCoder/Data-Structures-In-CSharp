@@ -87,7 +87,7 @@ For this exercise, please follow the below steps.
 ## 1. Build `LinkedList<T>` & `Node<T>` classes
 ![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Create new `LinkedList<T>` class file with these Conditions:
 - Class members:
-  - `public` class Node<T> inside it with these members:
+  - `public` class `Node<T>` inside it with these members:
     - A `public` property of type `T` to store value.
     - A `public` property of type `Node<T>` to store next node address.
     - A Constructor with 1 Parameter: of type T to set on Node value property.
