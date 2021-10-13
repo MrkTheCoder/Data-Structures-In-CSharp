@@ -91,16 +91,18 @@ For this exercise, please follow the below steps.
     - A `public` property of type `T` to store value.
     - A `public` property of type `Node<T>` to store next node address.
     - A Constructor with 1 Parameter: of type T to set on Node value property.
-  - A `public` property of type `Node<T>` to store head of list address.
-  - A `public` property of type `Node<T>` to store tail of list address.
+  - `public` property `Head` of type `Node<T>` to store head of list address.
+  - `public` property `Tail` of type `Node<T>` to store tail of list address.
   - A `public` property of type `int` to count list items.
 
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We shouldn't define `Head`/`Tail` and `Node` class as public members of `LinkedList`, but just for unit test's purpose I did that.
+![Stop_Wrong_Attention](https://user-images.githubusercontent.com/25789969/137124180-e3654261-1fe6-487c-8dd8-de1970c41ae4.png) 
+We shouldn't define `Head`/`Tail` and `Node` class as public members of `LinkedList`![Stop_Wrong_Attention](https://user-images.githubusercontent.com/25789969/137124180-e3654261-1fe6-487c-8dd8-de1970c41ae4.png), because they are class implementations details of `LinkedList` class, and they should be not accessible from outside this class. But just for unit test's and examine them more and easily in details, I did that. But in real-world coding,  we should not change a `private` member to a `public`, so we can write some Unit tests against them. It is wrong! Instead, We should test them indirect by class behavior.
 
 ## 2. Add `AddLast` method:
 `AddLast(T item)` method will add a new item to the end of  `LinkedList`.
  
-![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Define `AddLast` method with:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) 
+Define `AddLast` method with:
    - **1 Parameter**: of type T. It will be added to the end of `LinkedList`.
    - **Return**: `void` or, if you like to make it **Fluent Interface**, set return type as `LinkedList<T>`.
 
