@@ -2,7 +2,8 @@
 As you know, regular arrases in C# like `int[]` or `string[]` have static length. It means, when we defined their length, we cannot change it anymore! 
 
 **What we will write here?**
-We will write an `Array` class step by step. It can hold integer numbers, while It does not have the fixed length problem of regular arrases. It means, if we insert items more than its predefined length, It will automatically expand the array to have more rooms. Let's have some fun and start to write this array from scratch! 
+
+We will write an `Array` class step by step. It can hold integer numbers, while It does not have the fixed length problem of regular arrases. It means, if we insert items more than its predefined length, It will automatically expand to have more rooms. Let's have some fun and start to write this `Array` class from scratch! 
 
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
@@ -36,7 +37,7 @@ Add `Insert` method:
 Then follow these steps:
    1. Make this method ready to add new item into the array. (for now, do not worry about array when it becomes full.)
    2. Write *UnitTest* to make sure it is working properly.
-   3. Add automatically expanding array feature into this method when we are inserting a new item into a full array. Expand the array, 50% of its initialed length. For instance, If we set array length to 10 at first place, then we should add 5 to it each time the array become full again. So it should be 15, 20, 25, ...
+   3. Add capability of automatically expanding the array when we are inserting a new item into a full array. We can expand it 50% of its initialed length. For instance, If we set array length to 10 at first place, then we should add 5 to it each time it needs to expanding its size. So it expands lengths should be 15, 20, 25, ...
    4. Write *UnitTests* against new method feature.
    5. Refactor your code to support **S**ingle **R**esponsibility **P**rinciple (SRP) on this method.
    6. Run all previous *UnitTests* to make sure everything is fine.
