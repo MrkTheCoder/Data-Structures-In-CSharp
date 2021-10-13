@@ -1,21 +1,32 @@
-
 # Array
-We will write an Array class step by step. It can hold integer numbers in a nullable int[] array. Also, It does not have fixed length problem like regular arrays have. I mean, if we insert items more than its predefined length, It will automatically expand the array to have more rooms. It is so fun to build such an array type ourselves, from scratch! Right!?
+As you know, regular arrases in C# like `int[]` or `string[]` have static length. It means, when we defined their length, we cannot change it anymore! 
+
+**What we will write here?**
+We will write an `Array` class step by step. It can hold integer numbers, while It does not have the fixed length problem of regular arrases. It means, if we insert items more than its predefined length, It will automatically expand the array to have more rooms. Let's have some fun and start to write this array from scratch! 
 
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
+
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) Clean Code principles are dictate to structure our Class members like this: 1st private fields/properties, 2nd public properties, 3rd public methods, 4th private methods. But Since I divided this class into some Steps in `region`'s, I put all public & private methods that are related to that step in the same `region`! In real-world programming, we should not do that!
 
 For this exercise, please follow the below steps. 
 
 ## 1. Build `Array` class
 Create new `Array` class file with these Conditions:
 - Class members:
-  - A `public` property of type `int?[]` with private setter. (We will store our numbers in this array)
-  - A `public` property of type `int` with private setter. (keep tracking of the last item index in array)
+  - A `private` field `_items` of type `int[]`. We will store inserted items in this array.
+  - A `public` property `Count` of type `int` with private setter. It not only keep tracking of the last item index in array but also total of them.
 - Class constructor: 1 parameter of type `int` to define array length.
   - Verify that length is valid. `throw` an exception if it is not.
   - Instantiate all properties.
+ - A public method, `GetItem(int index)` :
+   -  **1 Parameter**: of type int. It is the index of an item in our `_items` array. 
+      - Make sure the inserted index is valid, if not, throw an `Exception`. (*HINT*: total of items in the `_items` array is important and not the length of it!)
+   - **Return**: type is int, the value of item.
 
-Then write first *UnitTests* to see if your class Initialization working properly.
+Then follow these steps:
+- Then write a very simple first *UnitTests* to see if your class Initialization working properly.
+- Write a test for `GetItem()` method.
+
 
 ## 2. Add `Insert` method:
 Add `Insert` method:
