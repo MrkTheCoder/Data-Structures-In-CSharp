@@ -184,17 +184,17 @@ namespace LinkedListDataStructure
             // p     c
             // While start
             //             n
-            // 10 <- 20    30 -> 40 current.Next = previous;
+            // 10 <- 20    30 -> 40 Reverse Link (current.Next = previous;)
             //       p
             //              c 
             // While restart
             //                    n
-            // 10 <- 20 <- 30    40 current.Next = previous;
+            // 10 <- 20 <- 30    40 Reverse Link (current.Next = previous;)
             //             p
             //                   c
             // While restart
             //                         n (null)
-            // 10 <- 20 <- 30 <- 40 current.Next = previous;
+            // 10 <- 20 <- 30 <- 40  Reverse Link (current.Next = previous;)
             //                   p
             // c = n (null)
             // While Exit

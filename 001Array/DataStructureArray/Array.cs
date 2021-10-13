@@ -30,7 +30,7 @@ namespace ArrayDataStructure
         #region [STEP 1]
         private readonly int _additionalLength; // [Step 2]
 
-        public int?[] Items { get; private set; }
+        private int[] _items;
         public int Count { get; private set; }
 
         public Array(int length)
@@ -39,11 +39,23 @@ namespace ArrayDataStructure
             if (length < 1)
                 throw new ArgumentException("length cannot be less than 1");
 
-            // Do you know why I added "length % 2" in this equation!? :D
-            _additionalLength = length / 2 + length % 2; // [Step 2]
-            Items = new int?[length];
+            // Half of length plus one will be our extra rooms when Array need to expand.
+            _additionalLength = length / 2 + 1; // [Step 2]
+            _items = new int[length];
             Count = 0;
         }
+
+        public int GetItem(int index)
+        {
+            // It is better to make a simple method with meaningful name instead of just writing "index < 0 || index >= Count".
+            // Beside that we will use this logic again.
+            if (IsIndexOutOfRange(index))
+                throw new ArgumentException("Index is out of range!");
+            
+            return _items[index];
+        }
+
+        private bool IsIndexOutOfRange(int index) => index < 0 || index >= Count;
         #endregion
 
         #region [STEP 2]
@@ -53,7 +65,7 @@ namespace ArrayDataStructure
             // Extract logic of expanding array out of this to support DRY and SRP principles.
             ExpandArray();
 
-            Items[Count++] = number;
+            _items[Count++] = number;
 
             // this line will support "Fluent Interface" design pattern. (chain of Methods)
             return this;
@@ -62,16 +74,16 @@ namespace ArrayDataStructure
         // Extracted logic of expanding array.
         private void ExpandArray() // O(n)
         {
-            if (Count == Items.Length)
+            if (Count == _items.Length)
             {
                 // Create new array with current length plus half of first length at instantiation of this class.
-                var expandedArray = new int?[Count + _additionalLength];
+                var expandedArray = new int[Count + _additionalLength];
 
                 // Cloning current array to new expanded array.
                 for (int i = 0; i < Count; i++)
-                    expandedArray[i] = Items[i];
+                    expandedArray[i] = _items[i];
 
-                Items = expandedArray;
+                _items = expandedArray;
             }
         }
         #endregion
@@ -79,26 +91,22 @@ namespace ArrayDataStructure
         #region [STEP 3]
         public Array RemoveAt(int index) // O(n)
         {
-            // It is better to make a simple method with meaningful name instead of just writing "index < 0 || index >= Count".
-            // Beside that we will use this logic again.
-            if (IsIndexOutOfRange(index))
+            if (IsIndexOutOfRange(index)) // We create this logic in STEP 1
                 throw new ArgumentException("Index is out of range!");
 
             for (int i = index; i < Count; i++)
-                Items[i] = i + 1 < Count ? Items[i + 1] : null;
+                _items[i] = i + 1 < Count ? _items[i + 1] : 0;
             
             Count--;
             return this;
         }
-
-        private bool IsIndexOutOfRange(int index) => index < 0 || index >= Count;
         #endregion
 
         #region [STEP 4]
         public int IndexOf(int item) // O(n)
         {
-            for (var i = 0; i < Items.Length; i++)
-                if (Items[i] == item)
+            for (var i = 0; i < _items.Length; i++)
+                if (_items[i] == item)
                     return i;
             return -1;
         }
@@ -115,7 +123,7 @@ namespace ArrayDataStructure
             // We should only return a new array with Count size and not the whole "Items" length.
             var list = new int[Count];
             for (var i = 0; i < Count; i++)
-                list[i] = Items[i].Value;
+                list[i] = _items[i];
 
             return list;
         }
@@ -132,13 +140,13 @@ namespace ArrayDataStructure
             
             // We are creating a new array to store reversed items.
             // We give it the same "length" as main array. Note: "Count" can be smaller than "Items.Length"
-            var array = new int?[Items.Length];
+            var array = new int[_items.Length];
 
             // Then we will fill the new array with reversed items. Note: We are using "Count" in the loop.
             for (int i = 0; i < Count; i++)
-                array[i] = Items[Count-1-i];
+                array[i] = _items[Count-1-i];
 
-            Items = array;
+            _items = array;
 
             return this;
         }
@@ -149,16 +157,16 @@ namespace ArrayDataStructure
         #region [STEP 7]
         public Array InsertAt(int item, int index)
         {
-            if (IsIndexOutOfRange(index))
+            if (IsIndexOutOfRange(index))  // We create this logic in STEP 1
                 throw new ArgumentException("Index is out of range!");
         
             ExpandArray();
 
             for (int i = Count-1; i >= index; i--)
             {
-                Items[i + 1] = Items[i];
+                _items[i + 1] = _items[i];
             }
-            Items[index] = item;
+            _items[index] = item;
             Count++;
 
             return this;
