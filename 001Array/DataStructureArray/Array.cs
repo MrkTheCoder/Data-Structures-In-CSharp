@@ -50,7 +50,7 @@ namespace ArrayDataStructure
             // It is better to make a simple method with meaningful name instead of just writing "index < 0 || index >= Count".
             // Beside that we will use this logic again.
             if (IsIndexOutOfRange(index))
-                throw new ArgumentException("Index is out of range!");
+                throw new ArgumentOutOfRangeException("","Index is out of range!");
             
             return _items[index];
         }
@@ -92,11 +92,12 @@ namespace ArrayDataStructure
         public Array RemoveAt(int index) // O(n)
         {
             if (IsIndexOutOfRange(index)) // We create this logic in STEP 1
-                throw new ArgumentException("Index is out of range!");
+                throw new ArgumentOutOfRangeException("","Index is out of range!");
 
             for (int i = index; i < Count; i++)
                 _items[i] = i + 1 < Count ? _items[i + 1] : 0;
             
+            // Always place counter at the end of your method.
             Count--;
             return this;
         }
@@ -118,7 +119,7 @@ namespace ArrayDataStructure
             // It is better to make a simple method with meaningful name instead of just writing "Count == 0".
             // Beside that we will use this logic again.
             if (IsEmpty())
-                throw new Exception("No item exist in array!");
+                throw new InvalidOperationException("No item exist in array!");
 
             // We should only return a new array with Count size and not the whole "Items" length.
             var list = new int[Count];
@@ -158,7 +159,7 @@ namespace ArrayDataStructure
         public Array InsertAt(int item, int index)
         {
             if (IsIndexOutOfRange(index))  // We create this logic in STEP 1
-                throw new ArgumentException("Index is out of range!");
+                throw new ArgumentOutOfRangeException("","Index is out of range!");
         
             ExpandArray();
 
@@ -167,8 +168,9 @@ namespace ArrayDataStructure
                 _items[i + 1] = _items[i];
             }
             _items[index] = item;
+            
+            // Always place counter at the end of your method.
             Count++;
-
             return this;
         }
         #endregion

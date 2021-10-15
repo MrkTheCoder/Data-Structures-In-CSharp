@@ -55,7 +55,7 @@ namespace ArrayUnitTests
             var array = new Array(10);
 
             // Assert
-            var ex = Assert.Throws<ArgumentException>(() => array.GetItem(0));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.GetItem(0));
             Assert.Equal(exceptionMessage, ex.Message);
         }
         #endregion
@@ -188,7 +188,7 @@ namespace ArrayUnitTests
             // Act
 
             //Assert
-            var ex = Assert.Throws<ArgumentException>(() => array.RemoveAt(0));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.RemoveAt(0));
             Assert.Equal("Index is out of range!", ex.Message);
             Assert.True(array.Count == 0);
         }
@@ -203,7 +203,7 @@ namespace ArrayUnitTests
             array.Insert(100);
 
             //Assert
-            var ex = Assert.Throws<ArgumentException>(() => array.RemoveAt(1));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.RemoveAt(1));
             Assert.Equal("Index is out of range!", ex.Message);
             Assert.True(array.Count == 1);
         }
@@ -218,7 +218,7 @@ namespace ArrayUnitTests
             array.Insert(100).Insert(102);
 
             //Assert
-            var ex = Assert.Throws<ArgumentException>(() => array.RemoveAt(-1));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.RemoveAt(-1));
             Assert.Equal("Index is out of range!", ex.Message);
             Assert.True(array.Count == 2);
         }
@@ -278,7 +278,7 @@ namespace ArrayUnitTests
             Array array = new Array(2);
 
             // Act
-            var ex = Assert.Throws<Exception>(() => array.GetItems());
+            var ex = Assert.Throws<InvalidOperationException>(() => array.GetItems());
 
             //Assert
             Assert.Equal("No item exist in array!", ex.Message);
@@ -447,11 +447,11 @@ namespace ArrayUnitTests
             array.Insert(1);
 
             // Act
-            var ex = Assert.Throws<ArgumentException>(() => array.InsertAt(2, 1));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.InsertAt(2, 1));
 
             //Assert
             Assert.Equal("Index is out of range!", ex.Message);
-            Assert.Throws<ArgumentException>(() => array.InsertAt(2, -1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => array.InsertAt(2, -1));
         }
 
         [Fact]
@@ -461,7 +461,7 @@ namespace ArrayUnitTests
             var array = new Array(2);
 
             // Act
-            var ex = Assert.Throws<ArgumentException>(() => array.InsertAt(1, 0));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => array.InsertAt(1, 0));
 
             //Assert
             Assert.Equal("Index is out of range!", ex.Message);
