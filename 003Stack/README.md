@@ -38,11 +38,10 @@ For this exercise, please follow the below steps.
 ## 1. Build `Stack<T>` class
 ![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Create new `Stack<T>` class file with these Conditions:
 - Class members:
-  - `public` property `Items` of type `T?[]` with private set to store `Stack` items in it.
-  - `public` property `Count` of type `int` to store total of items in `Stack`.
+  - `private` field `Items` of type `T?[]` to store `Stack` items in it.
+  - `public` property `Count` of type `int`, it keeps track of total items in `Stack`.
 
-![Stop_Wrong_Attention](https://user-images.githubusercontent.com/25789969/137124180-e3654261-1fe6-487c-8dd8-de1970c41ae4.png) 
-We shouldn't define `Items` property as a public member of `Stack` class.![Stop_Wrong_Attention](https://user-images.githubusercontent.com/25789969/137124180-e3654261-1fe6-487c-8dd8-de1970c41ae4.png)  Because It is implementations details of `Stack` class, and It should have not accessible from outside this class. But just for better study on it, unit test's and examine it more and easily in details, I did that. But in real-world coding,  we should not change a `private` member to a `public`, so we can write some Unit tests against them. It is wrong! Instead, We should test them indirect via testing and checking class behavior.
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) Since in this practice we are using `int[]` array for `Stack` class and there are no confusing algorithms exist like `LinkedList`, I defined `int[]` array as private. Which it should be! Therefore, instead of checking our internal class array directly, we will be checking class behavior after actions. This is right way to write Unite Tests for any class.
 
 ## 2. Add `Push` method:
 `Push` method will add a new item to the top of our `Stack`.
