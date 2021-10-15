@@ -8,9 +8,10 @@ namespace LinkedListDataStructure
     public class LinkedList<T>
     {
         #region [STEP 1]
-        // Head & Tail should be private, but for Unit Testing purpose I define them as public properties.
-        public Node<T>? Head { get; set; } 
-        public Node<T>? Tail { get; set; }
+        // Head & Tail should be private, but for Unit Testing and learning purpose I define them as public
+        // properties, so we can examine them further.
+        public Node<T>? Head { get; private set; } 
+        public Node<T>? Tail { get; private set; }
         public int Count { get; private set; }
 
         // Node class is implementation details of LinkedList it should defined as private also
@@ -18,7 +19,7 @@ namespace LinkedListDataStructure
         // in our unit Tests, for now we defined public.
         public class Node<TType>
         {
-            public TType Value { get; set; }
+            public TType Value { get;}
             public Node<TType>? Next { get; set; }
 
             public Node(TType value)
