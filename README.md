@@ -1,4 +1,4 @@
-# Data Structures in CSharp (C#)
+# Data Structures in C#
 #### [Teach Others to Learn More Yourself!]
 
 (*Still in progress ...*)
