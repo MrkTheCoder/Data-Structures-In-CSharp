@@ -45,6 +45,7 @@ namespace LinkedListDataStructure
                 Tail = node;
             }
 
+            // Always place counter at the end of your method.
             Count++;
             return this;
         }
@@ -66,6 +67,7 @@ namespace LinkedListDataStructure
                 Head = node;
             }
 
+            // Always place counter at the end of your method.
             Count++;
             return this;
         }        
@@ -100,7 +102,7 @@ namespace LinkedListDataStructure
         public LinkedList<T> RemoveFirst() // O(1)
         {
             if (IsEmpty())
-                throw new Exception("No node exists!");
+                throw new InvalidOperationException("No node exists!");
 
             // We should check, if there are only one item in the list,
             // Then Set both Head & Tail to null. (Reset the list)
@@ -111,6 +113,7 @@ namespace LinkedListDataStructure
                 Head = node;
             }   
             
+            // Always place counter at the end of your method.
             Count--;
             return this;
         }
@@ -130,7 +133,7 @@ namespace LinkedListDataStructure
         public LinkedList<T> RemoveLast() // O(n)
         {
             if (IsEmpty())
-                throw new Exception("No node exists!");
+                throw new InvalidOperationException("No node exists!");
             
             if (!Reset())
             {
@@ -146,6 +149,7 @@ namespace LinkedListDataStructure
                 Tail.Next = null;
             }
 
+            // Always place counter at the end of your method.
             Count--;
             return this;
         }
@@ -243,10 +247,10 @@ namespace LinkedListDataStructure
             // 4th) firstPointer.Value has our desire 3rd item. (20)
 
             if (IsEmpty())
-                throw new Exception("Empty LinkedList");
+                throw new InvalidOperationException("Empty LinkedList");
 
             if (k <= 0 || k > Count)
-                throw new Exception( $"Your value must be between 1 and {Count}!");
+                throw new ArgumentOutOfRangeException( "",$"Your value must be between 1 and {Count}!");
 
             var firstPointer = Head;
             var secondPointer = Head;

@@ -267,7 +267,7 @@ namespace LinkedListUnitTests
             var list = new LinkedList<int>();
 
             // Act
-            var ex = Assert.Throws<Exception>(() => list.RemoveFirst());
+            var ex = Assert.Throws<InvalidOperationException>(() => list.RemoveFirst());
 
             // Assert
             Assert.Equal("No node exists!", ex.Message);
@@ -342,7 +342,7 @@ namespace LinkedListUnitTests
             var list = new LinkedList<int>();
 
             // Act
-            var ex = Assert.Throws<Exception>(() => list.RemoveLast());
+            var ex = Assert.Throws<InvalidOperationException>(() => list.RemoveLast());
 
             // Assert
             Assert.Equal("No node exists!", ex.Message);
@@ -498,7 +498,7 @@ namespace LinkedListUnitTests
 
             // Act
             list.AddLast(item1).AddLast(item2).AddLast(item3).AddLast(item4);
-            var ex = Assert.Throws<Exception>(() => list.GetKthNodeFromTheEnd(kth));
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => list.GetKthNodeFromTheEnd(kth));
 
             // Assert
             Assert.Equal($"Your value must be between 1 and {list.Count}!", ex.Message);
