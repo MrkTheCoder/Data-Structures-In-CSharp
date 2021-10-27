@@ -7,6 +7,7 @@ We will write a generic `Queue<T>` class step by step. But before that, If you d
 **What is a `Queue`?**
 
 Think of a supermarket customer queue. First customer come stand in front of the line and then after that other customer came in the line and stand behind first customer and the next person and .... But when the counter become available, the first customer in front of line will be the first one that go out. This action represents the **First In, First Out** concept or in short **FIFO**.
+
 &nbsp;
 
 &nbsp;
