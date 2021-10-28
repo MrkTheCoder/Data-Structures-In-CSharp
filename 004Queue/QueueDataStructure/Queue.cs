@@ -6,7 +6,7 @@ namespace QueueDataStructure
     {
         #region [STEP 1]
         private readonly T[] _items; 
-        private int _first; // Added in Step 4 - Circular Array
+        private int _first;
         private int _last;  // Added in Step 4 - Circular Array
 
         public int Count { get; private set; }
@@ -28,6 +28,8 @@ namespace QueueDataStructure
         {
             if (IsFull())
                 throw new InvalidOperationException("Queue is full!");
+            
+            // _items[Count] = item; // Added in STEP 2 - But commented in STEP 4 to add new logic.
 
             _items[_last++] = item; 
             _last %= _items.Length; // Added in Step 4 - Circular Array
@@ -45,6 +47,9 @@ namespace QueueDataStructure
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Queue is empty!");
+
+            //var item = _items[_first++]; // Added in Step 3 - But commented in STEP 4 to add new logic.
+            //_items[_first++] = default; // Added in Step 3 - But commented in STEP 4 to add new logic.
 
             var item = _items[_first];
             _items[_first++] = default;
