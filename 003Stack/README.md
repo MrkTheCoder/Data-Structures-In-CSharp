@@ -1,5 +1,5 @@
 # Stack\<T\>
-We will write a generic `Stack<T>` class step by step. But before that, If you do not know what is a `Stackt` is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
+We will write a generic `Stack<T>` class step by step. But before that, If you do not know what is a `Stack` is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
 
 &nbsp;
 
@@ -8,7 +8,7 @@ We will write a generic `Stack<T>` class step by step. But before that, If you d
 
 The best way to explain what is stack are and how it works, is to use "Stack of Books" example.  Let's think of a stack of books, with each book kept on top of each other. You can view or remove the top most book, but you cannot do the same for the rest of books, unless you reach to them by removing top most book then do the same thing for next top most and ... until you reach to the desire book. 
 
-Also, this example teach us a new concept too. In a stack, the last object that came in, is the first one that can go out. Think about stack of books again. The last book you put at top, it is the first book that you can remove. This action represent the Last In, First Out concept or in short LIFO concept.
+Also, this example teach us a new concept too. In a stack, the last object that came in, is the first one that can go out. Think about stack of books again. The last book you put at top, it is the first book that you can remove. This action represent the **Last In, First Out** concept or in short **LIFO** concept.
 
 &nbsp;
 
