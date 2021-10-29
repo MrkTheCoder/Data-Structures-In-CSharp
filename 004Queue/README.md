@@ -1,4 +1,3 @@
-
 # Queue\<T\>
 We will write a generic `Queue<T>` class step by step. But before that, If you do not know what is a `Queue` is, please read my explanation. (Otherwise, feel free to jump to the 1st step) 
 
@@ -66,7 +65,7 @@ Define `Enqueue` method with:
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget about `Count` property.
 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget to check if Queue become full. Throw an exception if it was full. What property we should check to see if queue is full!?
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget to check if Queue become full. Throw an exception if it was full. What property we should check to see if queue is full!?  (You will have to add `IsFull()` method too)
 
 Then follow these steps:
    1. Make this method ready to add new item into the `Queue`.
@@ -83,7 +82,7 @@ Define `Dequeue` method with:
    - **No Parameter**.
    - **Return**: type of `T?`.
 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for `Queue` to be not empty. It was, throw an Exception.
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for `Queue` to be not empty. If it was, throw an Exception. (You will have to add `IsEmpty()` method too)
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Remember! Items must return from start of the `Queue`! So, do not forget about `_first` property! and to clear it, fill its place with `default` value of type T.
 
@@ -188,3 +187,18 @@ Check the relationship between each rows of `_rear` & `Desire Index` column! Do 
 So follow these steps:
    1. Add new formula to the 'Enqueue()' & 'Dequeue()' methods.
    2. Re-run previous *UnitTest* and write new ones against new formula. 
+
+## 5. Add `Peek` method:
+`Peek` method will return the first item in `Queue` **without** remove it.
+ 
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) 
+Define `Dequeue` method with:
+   - **No Parameter**.
+   - **Return**: type of `T?`.
+
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for `Queue` to be not empty. If it was, throw an Exception.
+
+Then follow these steps:
+   1. Make this method ready.
+   2. Write *UnitTest* to make sure it is working properly.
+   3. What is the method Time Complexity? 
