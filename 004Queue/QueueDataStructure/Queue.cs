@@ -7,7 +7,7 @@ namespace QueueDataStructure
         #region [STEP 1]
         private readonly T[] _items; 
         private int _first;
-        private int _last;  // Added in Step 4 - Circular Array
+        private int _rear;  // Added in Step 4 - Circular Array
 
         public int Count { get; private set; }
 
@@ -29,17 +29,21 @@ namespace QueueDataStructure
             if (IsFull())
                 throw new InvalidOperationException("Queue is full!");
             
-            // _items[Count] = item; // Added in STEP 2 - But commented in STEP 4 to add new logic.
+            // _items[_rear++] = item; // Added in STEP 2 - But commented in STEP 4 to add new logic.
 
-            _items[_last++] = item; 
-            _last %= _items.Length; // Added in Step 4 - Circular Array
+            _items[_rear++] = item; 
+            _rear %= _items.Length; // Added in Step 4 - Circular Array
 
             Count++;
             return this;
         }
 
         public bool IsFull()
-            => Count >= _items.Length;
+        {
+            // return _rear >= _items.Length; // Added in STEP 2 | Commented in STEP 4
+            return Count >= _items.Length; // Added in STEP 4
+        }
+
         #endregion
 
         #region [STEP 3]
@@ -65,10 +69,7 @@ namespace QueueDataStructure
         #endregion
 
         #region [Step 4]
-            // We Added two private pointer fields to class to support Circular Array:
-            //      private int _first; 
-            //      private int _last;  
-            // Then we changed our Enqueue & Dequeue methods accordingly.
+            // Add Circular Array logic into both Enqueue & Dequeue methods.
         #endregion
 
         #region [Step 5]
