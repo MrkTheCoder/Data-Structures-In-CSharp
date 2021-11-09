@@ -79,6 +79,25 @@ We will create **Singly** type of `LinkedList` at the start and when you become 
 
 
 
+&nbsp;
+
+&nbsp;
+**LinkedList Operations?**
+
+We will add these operations into our `LinkedList<T>`
+|Operation|Description|Time Complexity|
+|--|--|:--:|
+|AddLast|Add an item to the end of `LinkedList`.|?|
+|AddFirst|Add an item to the first position of `LinkedList`.|?|
+|IndexOf|Return index of an item in `LinkedList`, or -1 for not exists.|?|
+|Contain|Return `true` if an item exists, otherwise `false`.|?|
+|RemoveFirst|Remove first item of `LinkedList`.|?|
+|RemoveLast|Remove last item of `LinkedList`.|?|
+|ToArray|Convert `LinkedList` to an `Array`.|?|
+|Reverse|Reverse all items in `LinkedList`.|?|
+|GetKthNodeFromTheEnd|Return `K`'th item from the end of `LinkedList`.|?|
+
+
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
 For this exercise, please follow the below steps. 
@@ -248,6 +267,25 @@ Then we move both to the `Next` nodes:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\*
 
 If the last node reach to the `Tail`, then the first node will be at the right position.
+
+&nbsp;
+
+&nbsp;
+**LinkedList Operations and Time Complexity?**
+
+`LinkedList` operations have these time complexies:
+|Operation|Description|Time Complexity|
+|--|--|:--:|
+|AddLast|Add an item to the end of `LinkedList`.|O(1)|
+|AddFirst|Add an item to the first position of `LinkedList`.|O(1)|
+|IndexOf|Return index of an item in `LinkedList`, or -1 for not exists.|O(n)|
+|Contain|Return `true` if an item exists, otherwise `false`.|O(n)|
+|RemoveFirst|Remove first item of `LinkedList`.|O(1)|
+|RemoveLast|Remove last item of `LinkedList`.|O(n)|
+|ToArray|Convert `LinkedList` to an `Array`.|O(n)|
+|Reverse|Reverse all items in `LinkedList`.|O(n)|
+|GetKthNodeFromTheEnd|Return `K`'th item from the end of `LinkedList`.|O(n)|
+
 
 ## Extra practices:
 
