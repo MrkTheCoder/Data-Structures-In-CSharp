@@ -22,15 +22,14 @@ namespace ConsoleAppQueue
             Console.WriteLine(queue); // [0, 0, 30, 40, 50]
 
             Console.WriteLine("Adding 2 more items to the queue (Circular Array Algorithm is working):");
-            queue.Enqueue(60);
-            queue.Enqueue(70);
+            queue.Enqueue(60); // Adding 60
+            queue.Enqueue(70); // Adding 80
             Console.WriteLine(queue); // [60, 70, 30, 40, 50]
 
             Console.WriteLine("Queue is full, lets try to add another item (80):");
-
             try
             {
-                queue.Enqueue(80);
+                queue.Enqueue(80); // Adding 80
             }
             catch (Exception ex)
             {
@@ -41,11 +40,11 @@ namespace ConsoleAppQueue
             Console.WriteLine(queue); // [60, 70, 30, 40, 50]
 
             Console.WriteLine("Dequeuing 5 times:");
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue()); // 30
+            Console.WriteLine(queue.Dequeue()); // 40
+            Console.WriteLine(queue.Dequeue()); // 50
+            Console.WriteLine(queue.Dequeue()); // 60
+            Console.WriteLine(queue.Dequeue()); // 70
             Console.WriteLine(queue); // [0, 0, 0, 0, 0]
 
         }
