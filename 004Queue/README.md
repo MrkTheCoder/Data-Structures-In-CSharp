@@ -202,3 +202,38 @@ Then follow these steps:
    1. Make this method ready.
    2. Write *UnitTest* to make sure it is working properly.
    3. What is the method Time Complexity? 
+
+
+&nbsp;
+
+&nbsp;
+**Queue Operations and Time Complexity?**
+
+Time complexity of each `Queue<T>` operation are:
+|Operation|Description|Time Complexity|
+|--|--|:--:|
+|Enqueue|Add an item to the queue.|O(1)|
+|Dequeue|Return and remove first item in queue.|O(1)|
+|Peek|Return first item in queue.|O(1)|
+|IsEmpty|Return `true` if queue is empty.|O(1)|
+|IsFull|Return `true` if queue is full|O(1)|
+
+## Extra practices:
+
+Here are some ideas:
+
+-   **Reversing Queue**: At ConsoleApp write a  `void Reverse(Queue<int> queue)`  method to get an integer queue and reverse it. So if we give it a `queue` of `[10, 20, 30]` It must change `queue` to `[30, 20, 10]`. You're only allowing to use these 3 operations of our `Queue` class:
+    - `Enqueue`.
+    - `Dequeue`.
+    - `IsEmpty`.
+-   **StackQueue**: Create a new `Queue` class that will only use `Stack` to store and return `int` items.
+    - **Hint**: Use two different `Stack` fields for `Enqueue` and `Dequeue` purposes.
+-  **Priority Queues:** Create a `PriorityQueue` class that accept integer numbers and store them in Ascending sort. *Example*: We enqueues these numbers: `[4, 5, 3, 2]` at first `Dequeue`, we should get `2` if we `Enqueue(1)`, then `Dequeue`, we should get `1`. (*then: 3, 4, 5*)
+-  **Queue with Linked List**: Create a `Queue` class and use `LinkedList` instead of `Array` and add all above operations to it.
+- **ReverseK**:   At ConsoleApp write a `void ReverseK(Queue<int> queue, int k)` method and it should reverse `K`'th first members of `Queue`. *Example*: `[10, 20, 30, 40, 50]` and if `k = 3` then `[30, 20, 10, 40, 50]`.
+   - **Hint**: Only use one `Stack` and no new `Queue` variable needed!
+- **Stack with Queue**: Create a `Stack` class with two queues. Add all regular Stack operations to it.
+
+Happy Codding!
+
+M. Reza Kangani TheCoder
