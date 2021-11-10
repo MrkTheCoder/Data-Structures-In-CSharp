@@ -1,13 +1,31 @@
 # Array
 As you know, regular arrases in C# like `int[]` or `string[]` have static length. It means, when we defined their length, we cannot change it anymore! 
 
+&nbsp;
+
+&nbsp;
 **What we will write here?**
 
 We will write an `Array` class step by step. It can hold integer numbers, while It does not have the fixed length problem of regular arrases. It means, if we insert items more than its predefined length, It will automatically expand to have more rooms. Let's have some fun and start to write this `Array` class from scratch! 
 
+&nbsp;
+
+&nbsp;
+**Array Operations?**
+
+We will add these operations into our `Array`
+|Operation|Description|Time Complexity|
+|--|--|:--:|
+|Insert|Add an item to the array.|?|
+|RemoveAt|remove an item from specific index.|?|
+|IndexOf|Return index of an item in array, or -1 for not exists.|?|
+|GetItems|Return all items in the array.|?|
+|Reverse|Reverse all items in array.|?|
+|InsertAt|Insert an item in specific index.|?|
+
 ![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) If you are student and try to learn Data Structure, Please follow each step one by one. In each step, do not look at my code unless you solve it first. It is not important how long it takes to solve it. I put each step inside `#region` blocks, so you can easily collapse all then only expand the one you solved. I did this in both XyzDataStracture & XyzUnitTests projects.
 
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) Clean Code principles are dictate to structure our Class members like this: 1st private fields/properties, 2nd public properties, 3rd public methods, 4th private methods. But Since I divided this class into some Steps in `region`'s, I put all public & private methods that are related to that step in the same `region`! In real-world programming, we should not do that!
+![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) Clean Code principles are advising to structure our Class members like this: 1st private fields/properties, 2nd public properties, 3rd public methods, 4th private methods. But Since I divided this class into some Steps in `region`'s, I put all public & private methods that are related to that step in the same `region`! In real-world programming, we should not do that!
 
 For this exercise, please follow the below steps. 
 
@@ -98,6 +116,21 @@ Then follow these steps:
    1. Make method ready.
    2. Write *UnitTests* for it.
    3. What is method Time Complexity?
+
+&nbsp;
+
+&nbsp;
+**Array Operations and Time Complexity?**
+
+`Array` operations time complexity are:
+|Operation|Description|Time Complexity|
+|--|--|:--:|
+|Insert|Add an item to the array.|O(1)|
+|RemoveAt|remove an item from specific index.|O(n)|
+|IndexOf|Return index of an item in array, or -1 for not exists.|O(n)|
+|GetItems|Return all items in the array.|O(n)|
+|Reverse|Reverse all items in array.|O(n)|
+|InsertAt|Insert an item in specific index.|O(n)|
 
 ## 8. Extra practices:
 We are done here for now! But you can continue to add extra features to it. I suggested a few at below:
