@@ -13,7 +13,7 @@ Think of a supermarket customer queue in one of the counters. First person came 
 &nbsp;
 **Structure of `Queue`?**
 
-`Queue` just like `Stack` internally use `Array` or `LinkedList` to store its objects. For this practice, We will use simple array in this practice to create our personal `Queue` class.
+`Queue` just like `Stack` internally use `Array` or `LinkedList` to store its objects. For this practice, We will use simple array to create our personal `Queue` class.
 
 &nbsp;
 
@@ -47,11 +47,9 @@ For this exercise, please follow the below steps.
 - Class members:
   - `private` field `Items` of type `T[5]` array to store `Queue` items in it. To make it easy, array length is set to 5.
   - `private` field `_first` of type `int` to act as a pointer to store first item index in the `array`.  As you know, in Queue's, first members are the first one's that leave.
- - `private` field `_rear` of type `int` to act as a pointer to store last free index in the `array`.  As you know, in Queue's, new members go to the back of line, but they leave it from the front. So we need to know position of both side.
+  - `private` field `_rear` of type `int` to act as a pointer to store last free index in the `array`.  As you know, in Queue's, new members go to the back of line, but they leave it from the front. So we need to know position of both side.
   - `public` property `Count` of type `int`, it keeps track of total items in `Queue`.
   - `override ToString()` method to show `Queue` items in this format. `[item1, item2, item3, item4, item5]`.
-
-![notice-icon-7](https://user-images.githubusercontent.com/25789969/135717888-486318b4-7b6b-41ee-af24-bbeb181bb032.png) We will add another private field to this class in STEP 4, so if you go ahead and look at STEP 1 region, you may saw it. Please ignore it for now!
 
 ## 2. Add `Enqueue` method:
 `Enqueue` method will add a new item to the `Queue`.
@@ -84,7 +82,7 @@ Define `Dequeue` method with:
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Watch for `Queue` to be not empty. If it was, throw an Exception. (You will have to add `IsEmpty()` method too)
 
-![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Remember! Items must return from start of the `Queue`! So, do not forget about `_first` property! and to clear it, fill its place with `default` value of type T.
+![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Remember! Items must return from start of the `Queue`! So, do not forget about `_first` property! Also clear that item from array too.
 
 ![Light](https://user-images.githubusercontent.com/25789969/136387819-e8790a55-7543-421f-bc1d-dae492b2b0ec.png): Don't forget about `Count` property.
 
