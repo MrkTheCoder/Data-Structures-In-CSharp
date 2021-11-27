@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppHashTable", "005H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTableDataStructure", "005HashTable\HashTableDataStructure\HashTableDataStructure.csproj", "{C11B3473-D538-4BC0-8BD7-CF93CC73EC3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTableUnitTests", "005HashTable\HashTableUnitTests\HashTableUnitTests.csproj", "{94562EC5-D457-4572-84C5-69C491ABE28B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{C11B3473-D538-4BC0-8BD7-CF93CC73EC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11B3473-D538-4BC0-8BD7-CF93CC73EC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11B3473-D538-4BC0-8BD7-CF93CC73EC3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94562EC5-D457-4572-84C5-69C491ABE28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94562EC5-D457-4572-84C5-69C491ABE28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94562EC5-D457-4572-84C5-69C491ABE28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94562EC5-D457-4572-84C5-69C491ABE28B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{01B2783D-1156-413E-B3BA-16D21823CA6E} = {8AADF4FE-AB0D-4132-97F2-BBCCE757D0B7}
 		{F357A9B3-0C89-4621-873F-5B4EFA9E0521} = {5FE959AE-975F-40A0-913D-B3CF33C00016}
 		{C11B3473-D538-4BC0-8BD7-CF93CC73EC3E} = {5FE959AE-975F-40A0-913D-B3CF33C00016}
+		{94562EC5-D457-4572-84C5-69C491ABE28B} = {5FE959AE-975F-40A0-913D-B3CF33C00016}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86E0DEFE-9368-4129-9D36-E86F52FF746F}
