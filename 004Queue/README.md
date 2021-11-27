@@ -4,9 +4,27 @@ We will write a generic `Queue<T>` class step by step. But before that, If you d
 &nbsp;
 
 &nbsp;
+## Queue in C#:
+In C# we have generic and non-generic queue class and a geniric `ConcurrentQueue<>` class. The `ConcurrentQueue<>` class is suitable for thread safe programming. Non-generic stack class, store all items as an object:
+
+    var numQueue = new Queue<int>();
+    numQueue.Enqueue(10);
+    numQueue.Enqueue(20);
+    numQueue.Enqueue(30);
+        
+    var objQueue = new Queue();
+    objQueue.Enqueue(10);
+    objQueue.Enqueue("A");
+    objQueue.Enqueue(true);
+
+You can find more sample of how to use `ConcurrentQueue<>` at [ConcurrentQueue\<T\> Class | Microsoft Doc](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1) .
+    
+&nbsp;
+
+&nbsp;
 **What is a `Queue`?**
 
-Think of a supermarket customer queue in one of the counters. First person came in and stand in the front of the line, then others join in to the back of the line and when counter become open, they start leaving from the front of the line. Queue's works like that. This action represents the **First In, First Out** concept or in short **FIFO**.
+Think of a supermarket customer queue in one of their counters. First person came in and stand in the front of the line, then others join in to the back of the line and when counter become open, they start leaving from the front of the line. Queue's works like that. This action represents the **First In, First Out** concept or in short **FIFO**.
 
 &nbsp;
 
