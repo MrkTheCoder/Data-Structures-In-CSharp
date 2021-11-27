@@ -4,6 +4,22 @@ We will write a generic `Stack<T>` class step by step. But before that, If you d
 &nbsp;
 
 &nbsp;
+## Stack in C#:
+In C# we have generic and non-generic stack. Non-generic stack, store all items as an object:
+
+    var numStack = new Stack<int>();
+    numStack.Push(10);
+    numStack.Push(20);
+    numStack.Push(30);
+    
+    var objStack = new Stack();
+    objStack.Push(10);
+    objStack.Push("A");
+    objStack.Push(true);
+
+&nbsp;
+
+&nbsp;
 **What is a `Stack`?**
 
 The best way to explain what is stack are and how it works, is to use "Stack of Books" example.  Let's think of a stack of books, with each book kept on top of each other. You can view or remove the top most book, but you cannot do the same for the rest of books, unless you reach to them by removing top most book then do the same thing for next top most and ... until you reach to the desire book. 
