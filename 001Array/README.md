@@ -44,7 +44,7 @@ We will add these operations into our `Array` class:
 For this exercise, please follow the below steps. 
 
 ## 1. Build `Array` class
-Create new `Array` class file with these Conditions:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Create new `Array` class file with these Conditions:
 - Class members:
   - A `private` field `_items` of type `int[]`. We will store inserted items in this array.
   - A `public` property `Count` of type `int` with private setter. It not only keep tracking of the last item index in array but also total of them.
@@ -62,7 +62,7 @@ Then follow these steps:
 
 
 ## 2. Add `Insert` method:
-Add `Insert` method with this signature
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `Insert` method with this signature
    - **1 Parameter**: of type int. It will be added as an item to the array.
    - **Return**: void. (for now!)
 
@@ -78,7 +78,7 @@ Then follow these steps:
    8. What is each method Time Complexity?
 
 ## 3. Add `RemoveAt` method:
-Add `RemoveAt` method with this signature:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `RemoveAt` method with this signature:
    - **1 Parameter**: of type `int`. Its value should point to of the inserted items index.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: check for inserted index to be a valid index based on total inserted items. `throw` an exception if it is not.
@@ -89,7 +89,7 @@ Then follow these steps:
    3. What is this method Time Complexity?
 
 ## 4. Add `IndexOf` method:
-Add `IndexOf` method with this signature:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `IndexOf` method with this signature:
    - **1 Parameter**: of type `int`.  It is an item that we want to search for it in array.
    - **Return**: *int*. If an item found, its index should be return otherwise -1.
 
@@ -99,7 +99,7 @@ Then follow these steps:
  3. What is this method Time Complexity?
 
 ## 5. Add `GetItems` method:
-Add `GetItems` method with this signature:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `GetItems` method with this signature:
    - **No Parameter**.
    - **Return**: array of `int[]`. Only existing items in array should be return as new array.
      - *HINT*: if array was empty, `throw` an exception.
@@ -110,7 +110,7 @@ Then follow these steps:
    3. What is method Time Complexity?
 
 ## 6. Add `Reverse` method:
-Add `Reverse` method:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `Reverse` method:
    - **No Parameter**.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: if array was empty or only have 1 item, Return without any exception throw.
@@ -121,7 +121,7 @@ Then follow these steps:
    3. What is method Time Complexity?
 
 ## 7. Add `InsertAt` method:
-Add `InsertAt` method with this signature:
+![Gear_Config](https://user-images.githubusercontent.com/25789969/136387498-f7f72a2b-7516-4c1a-a6bf-f9985d331300.png) Add `InsertAt` method with this signature:
    - **2 Parameters**: `item` type of `int` to pass new item, `index` type of `int`.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: `index` must be in range of existing items, otherwise throw exception.
