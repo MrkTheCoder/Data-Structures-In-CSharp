@@ -4,9 +4,16 @@ We will write a generic `LinkedList<T>` class step by step. But before that, If 
 &nbsp;
 
 &nbsp;
+## LinkedList in C#:
+In C#, we have 2 classes: `LinkedList<T>` and `LinkedListNode<T>`. 
+
+&nbsp;
+
+&nbsp;
+
 **What is a `LinkedList`?**
 
-We are using `LinkedList` to store a list of items in sequence. Unlike Arrays, `LinkedList`s can grow or shrink automatically.
+We are using `LinkedList` to store a list of items in sequence.(*linear data structure*) Unlike Arrays, `LinkedList`s can grow or shrink automatically, when we are adding/removing items.
 
 &nbsp;
 
@@ -71,11 +78,16 @@ So with these new names, the last table should be look like this:
 |Next|**node2**|**Tail**|null|
 
 
-Also, We have 2 kinds of `LinkedList`:
+&nbsp;
+
+&nbsp;
+**Linked Lists Types:**
+
+We have 2 types of `LinkedList`:
 -  **Singly**: each node only know about its next node address.
 - **Doubly**: each node knows both next and previous nodes addresses.
 
-We will create **Singly** type of `LinkedList` at the start and when you become familiar with it and know how it works then you can change it to support **Doubly** type too. 
+We will create **Singly** type of `LinkedList` at the start and when we become familiar with it and know how it works, then you can change it to support **Doubly** type too. 
 
 
 
