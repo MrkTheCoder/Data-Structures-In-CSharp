@@ -1,19 +1,33 @@
 # Array
-As you know, regular arrases in C# like `int[]` or `string[]` have static length. It means, when we defined their length, we cannot change it anymore! 
+You can store multiple variables of the same type in an array data structure. Array's in C# have static length. It means, when we're instantiating an array, we should specify its length. After that, we cannot change it anymore! Also, an array can be  [single-dimensional](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/single-dimensional-arrays),  [multidimensional](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays)  or  [jagged](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/jagged-arrays). (More Info: [Arrays - C# Programming Guide | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/)
+&nbsp;
+
+&nbsp;
+
+## Array in C#
+Declare array in C# are like these:
+
+    int[] nums = new int[10];
+    var scores = new int[20];
+    var points = new [] {10, 5, 1, 16, 5}; // 'int' array with fixed 'Length' of '5'
+    var texts = new string[5];
+    var names = new [] {"A", "B"}; // 'String' array with fixed 'Length' of '2'
+    var letters = new[] { 'A', 'B', 'C', 'D' }; // 'Char' array with fixed 'Length' of '4'
+    var students = new Student[50];
 
 &nbsp;
 
 &nbsp;
 **What we will write here?**
 
-We will write an `Array` class step by step. It can hold integer numbers, while It does not have the fixed length problem of regular arrases. It means, if we insert items more than its predefined length, It will automatically expand to have more rooms. Let's have some fun and start to write this `Array` class from scratch! 
+We will write an `Array` class step by step with dynamic length. It can hold integer numbers, while It does not have the fixed length problem like array's in C#. It means, if we insert items more than its predefined length, It will automatically expand to have more rooms. But under the hood, we're still using the same `int[]` fixed length array!! So! Let's start this project and see the magic of it!
 
 &nbsp;
 
 &nbsp;
 **Array Operations?**
 
-We will add these operations into our `Array`
+We will add these operations into our `Array` class:
 |Operation|Description|Time Complexity|
 |--|--|:--:|
 |Insert|Add an item to the array.|?|
@@ -40,7 +54,7 @@ Create new `Array` class file with these Conditions:
  - A public method, `GetItem(int index)` :
    -  **1 Parameter**: of type int. It is the index of an item in our `_items` array. 
       - Make sure the inserted index is valid, if not, throw an `Exception`. (*HINT*: total of items in the `_items` array is important and not the length of it!)
-   - **Return**: type is int, the value of item.
+   - **Return**: type is `int`, the value of `_items[index]`.
 
 Then follow these steps:
 - Then write a very simple first *UnitTests* to see if your class Initialization working properly.
@@ -48,7 +62,7 @@ Then follow these steps:
 
 
 ## 2. Add `Insert` method:
-Add `Insert` method:
+Add `Insert` method with this signature
    - **1 Parameter**: of type int. It will be added as an item to the array.
    - **Return**: void. (for now!)
 
@@ -64,7 +78,7 @@ Then follow these steps:
    8. What is each method Time Complexity?
 
 ## 3. Add `RemoveAt` method:
-Add `RemoveAt` method:
+Add `RemoveAt` method with this signature:
    - **1 Parameter**: of type `int`. Its value should point to of the inserted items index.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: check for inserted index to be a valid index based on total inserted items. `throw` an exception if it is not.
@@ -75,7 +89,7 @@ Then follow these steps:
    3. What is this method Time Complexity?
 
 ## 4. Add `IndexOf` method:
-Add `IndexOf` method:
+Add `IndexOf` method with this signature:
    - **1 Parameter**: of type `int`.  It is an item that we want to search for it in array.
    - **Return**: *int*. If an item found, its index should be return otherwise -1.
 
@@ -85,7 +99,7 @@ Then follow these steps:
  3. What is this method Time Complexity?
 
 ## 5. Add `GetItems` method:
-Add `GetItems` method:
+Add `GetItems` method with this signature:
    - **No Parameter**.
    - **Return**: array of `int[]`. Only existing items in array should be return as new array.
      - *HINT*: if array was empty, `throw` an exception.
@@ -107,7 +121,7 @@ Then follow these steps:
    3. What is method Time Complexity?
 
 ## 7. Add `InsertAt` method:
-Add `InsertAt` method:
+Add `InsertAt` method with this signature:
    - **2 Parameters**: `item` type of `int` to pass new item, `index` type of `int`.
    - **Return**: `void` or if you like to make it **Fluent Interface** support.
      - *HINT*: `index` must be in range of existing items, otherwise throw exception.
