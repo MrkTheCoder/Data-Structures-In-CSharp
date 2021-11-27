@@ -5,7 +5,7 @@ We will write a generic `Stack<T>` class step by step. But before that, If you d
 
 &nbsp;
 ## Stack in C#:
-In C# we have generic and non-generic stack. Non-generic stack, store all items as an object:
+In C# we have generic and non-generic stack and a geniric `ConcurrentStack<>`. The `ConcurrentStack<>` is suitable for thread safe programming. Non-generic stack, store all items as an object:
 
     var numStack = new Stack<int>();
     numStack.Push(10);
@@ -17,6 +17,8 @@ In C# we have generic and non-generic stack. Non-generic stack, store all items 
     objStack.Push("A");
     objStack.Push(true);
 
+You can find more sample of how to use `ConcurrentStack<>` at [ConcurrentStack<T> Class | Microsoft Doc](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentstack-1) .
+    
 &nbsp;
 
 &nbsp;
