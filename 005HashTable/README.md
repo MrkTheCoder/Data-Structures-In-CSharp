@@ -12,7 +12,7 @@ In C#, We have 3 classes to represent `HashTable`:
 &nbsp;
 ## What is a `HashTable`?
 
-A hash table is a type of data structure that stores key-value pairs. In `Array`, `LinkedList`, `Stack` and `Queue`, we stored one item each time, while in `Dictionary`, we store two items at the same time.
+A hash table is a type of data structure that stores key-value pairs. In `Array`, `LinkedList`, `Stack` and `Queue`, we stored one item each time, while in `Dictionary`, we store two items at the same time. Unlike `Array`, And just like `LinkedList`, `HashTable` also can grow or shrink automatically, when we are adding/removing items. But they are so fast to find a `Value` based on the related `Key` for that `Value` which we defined. `Key` in `Dictionary` almost works just look like the `Index` in `Array`.
 
 As you saw in "[`HashTable1` in C#](#hashtable-in-c)" section, we have 3 different classes to represent HashTable in C# languages, But usualy we are using `Dictionary<TKey, TValue>` a lot. This class need two items:
 
