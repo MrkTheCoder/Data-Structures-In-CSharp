@@ -25,8 +25,8 @@ As you saw in "[`HashTable1` in C#](#hashtable-in-c)" section, we have 3 differe
 For instance, let's assume we want to store a `Student` object list in a collection then find any student based on its unique `ID` number. `Student` object can have multiple members like, `StudentId`,  `FirstName`, `LastName`, `Grade` & .... But Since we are only interesting to find a `Student` object with its unique `StudentId` Number, The best suitable collection for this job is a `Dictionary` collection. For each element in our `Dictionary` collection, We can use each `StudentId` number as it `Key` and the whole `Student` object as it `Value`. But how `HashTable` use and store the Key and Value for each element!? Please check the following topic.
 
 &nbsp;
-### Structure of `HashTable`?
-`HashTable` use a **Hash function** to produce a `HashCode` for each `Key` it received. Since all `Key`s are unique, then their `HashCode`'s will be unique too. Then `HashTable` will store the `HashCode` and its related `Value` into the same row at a table. 
+### How `HashTable` Store Elements?
+`HashTable` use a **Hash function** to produce a `HashCode` for each `Key` it received. Since all `Key`s are unique, then their `HashCode`'s will be unique too. (Well! Not 100% true! Check the next section) Then `HashTable` will store the `HashCode` and its related `Value` into the same row at a table. 
 
 Now! You should have a pretty good idea where these **Hash** and **Table** words came from in `HashTable` name! Let's go back to the `Student` collection example and create a **Table** to represent a `HashTable` data structure. Let's store some `Student` objects:
 
@@ -49,6 +49,13 @@ We set `Student.ID` as `Key` for each `Student` object as a `Value`. But under t
 
 |<pre>Key<br>(HashCode)<br>Created by Hash Function based on StudentId</pre>|<pre>Value<br>(Student Object)|
 |:--:|:--:|
-| 12512 | student1 |
-| 98542 | student2|
-| 57457 | student3 |
+| *HashCode1* | student1 |
+| *HashCode2* | student2|
+| *HashCode3* | student3 |
+
+To retreive any data from a `Dictionary` object, we just need to call its object with pair of `[]` just like we did in `Array`, and for `index` we should use an existing `Key` (*if the `Key` do not exists in a collection, we will get an exception*):
+
+    var studentTwo = students[10002];
+    Console.WriteLine(studentTwo.FirstName); // Arwin
+    
+### How `HashTable` Store Elements Under the Hood:
