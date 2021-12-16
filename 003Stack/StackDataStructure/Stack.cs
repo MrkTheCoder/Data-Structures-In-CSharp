@@ -34,17 +34,17 @@ namespace StackDataStructure
         {
             if (Count == Items.Length)
             {
-                var expandedArray = CopyArray(Count + 5, Count);
+                var expandedArray = ExpandArray(Items, Count, Count + 5);
 
                 Items = expandedArray;
             }
         }
 
         // We will use this method several times.
-        private T[] CopyArray(int targetArrayLength, int sourceArrayItemCount)
+        private T[] ExpandArray(T?[] sourceArray, int sourceArrayItemsCount, int targetArrayLength)
         {
             var newItems = new T[targetArrayLength];
-            Array.Copy(Items, newItems, sourceArrayItemCount);
+            Array.Copy(sourceArray, newItems, sourceArrayItemsCount);
 
             return newItems;
         }
@@ -86,7 +86,7 @@ namespace StackDataStructure
         public override string ToString()
         {
             // First take out all Items.
-            var newItems = CopyArray(Count, Count);
+            var newItems = ExpandArray(Items, Count, Count);
 
             return $"[{string.Join(',', newItems)}]";
         } 
