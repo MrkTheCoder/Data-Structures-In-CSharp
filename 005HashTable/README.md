@@ -12,13 +12,13 @@ In C#, We have 3 classes to represent `HashTable`:
 &nbsp;
 ## What is a `HashTable`?
 
-A hash table is a type of data structure that stores key-value pairs. In `Array`, `LinkedList`, `Stack` and `Queue`, we stored one item each time, while in `HashTable`, we are storing two items at the same time. Unlike `Array`, And just like `LinkedList`, `HashTable` also can grow or shrink automatically by adding/removing items. `HashTable` is so fast to find a `Value` based on the related `Key`. `Key` in `Dictionary` almost works just look like the `Index` in `Array`.
+A `HashTable` is a type of data structure that stores key-value pairs. We store one item each time in `Array`, `LinkedList`, `Stack` and `Queue`, while in `HashTable`, we store two items each time. `HashTable` does not have a fixed length like `Array` and it is so fast to find a `Value` based on the related `Key`. `Key` in `Dictionary` almost works just look like the `Index` in `Array`.
 
-As you saw in "[`HashTable1` in C#](#hashtable-in-c)" section, we have 3 different classes to represent HashTable in C# languages, But usualy we are using `Dictionary<TKey, TValue>` a lot. This class need two items:
+As you saw in "[`HashTable1` in C#](#hashtable-in-c)" section, we have 3 different classes to represent HashTable in C# languages, But usually, we will be using `Dictionary<TKey, TValue>` a lot. This class needs two elements:
 
-- The **first item** in `Dictionary` is `Key`. The `Key` data type can be anything, but all `Keys` should be in the same data type. `Key` value must be unique. (no duplicate elements allowed)
+- The **first element** in `Dictionary` is `Key`. The `Key` data type can be anything, but all `Keys` should be in the same data type. `Key` value must be unique. (no duplicate elements allowed)
 
-- The **second item** in `Dictionary` is `Value`. The `Value` can be in any kind of data type, but again, all of them should have the same data type. We can have duplicated values here.
+- The **second element** in `Dictionary` is `Value`. The `Value` can be in any kind of data type, but again, all of them should have the same data type. We can have duplicated values here.
 
 &nbsp;
 ### How `HashTable` Store Elements?
